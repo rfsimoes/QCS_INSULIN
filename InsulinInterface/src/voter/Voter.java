@@ -83,9 +83,15 @@ public class Voter {
                             vec.add(result);
                         }                        
                     }
-                    //FALTA ADICINAR OS OUTROS METODOS
                     else if(method==MEALTIME_INSULINE_PERSONALIZED){
-                        
+                        personalSensitivity = calculator.personalSensitivityToInsulin(physicalActivityLevel, physicalActivitySamples, bloodSugarDropSamples);
+                        System.out.println("Personal Sensitivity: "+personalSensitivity);
+                        int result = calculator.mealtimeInsulinDose(carbohydrateAmount, carbohydrateToInsulinRatio, preMealBloodSugar, targetBloodSugar, personalSensitivity);
+                        System.out.println(wsdl);
+                        System.out.println(result);
+                        synchronized(thisInstance){
+                            vec.add(result);
+                        }
                     }
                     else if(method==BACKGROUND_INSULINE){
                         int result = calculator.backgroundInsulinDose(bodyWeight);
@@ -153,11 +159,40 @@ public class Voter {
 
         return getService(BACKGROUND_INSULINE);
     }
+    
+    
+    private int physicalActivityLevel;
+    private int[] physicalActivitySamples; 
+    private int[] bloodSugarDropSamples;
+
+    public int personalSensitivityToInsulinCalculation(int carbohydrateAmount,
+            int carbohydrateToInsulinRatio,
+            int preMealBloodSugar,
+            int targetBloodSugar,
+            int physicalActivityLevel,
+            int[] physicalActivitySamples,
+            int[] bloodSugarDropSamples) {
+        this.carbohydrateAmount = carbohydrateAmount;
+        this.carbohydrateToInsulinRatio = carbohydrateToInsulinRatio;
+        this.preMealBloodSugar = preMealBloodSugar;
+        this.targetBloodSugar = targetBloodSugar;
+        this.physicalActivityLevel = physicalActivityLevel;
+        this.physicalActivitySamples = physicalActivitySamples;
+        this.bloodSugarDropSamples = bloodSugarDropSamples;
+
+        return getService(MEALTIME_INSULINE_PERSONALIZED);
+    }
 
     public static void main(String[] args) throws Exception {
 
         Voter voter = new Voter();
         voter.mealtimeInsulinDoseCalculationUsingStandardInsulinSensitivity( 60, 12, 200, 100, 25);
+        
+        //voter.backgroundInsulinDoseCalculation(79);
+        
+        //int [] a = {0,10};
+        //int [] b = {50,50};
+        //voter.personalSensitivityToInsulinCalculation(60, 12, 200, 100, 5, a, b);
         
         System.out.println("bye bye");
         

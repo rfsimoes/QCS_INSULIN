@@ -6,6 +6,7 @@
 package insulininterface;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import server.InsulinDoseCalculator;
 import voter.Voter;
 
@@ -247,7 +248,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jLabel1))
@@ -310,7 +311,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Background insulin dose", jPanel2);
@@ -377,7 +378,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
         jLabel24.setText("0-10");
 
-        jLabel25.setText("samples of physical activity level:");
+        jLabel25.setText("samples of physical activity level (minimum: 2):");
 
         jLabel26.setText("0-10");
 
@@ -387,48 +388,56 @@ public class InterfaceFrame extends javax.swing.JFrame {
             }
         });
 
+        jTextField13.setEnabled(false);
         jTextField13.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField13KeyReleased(evt);
             }
         });
 
+        jTextField14.setEnabled(false);
         jTextField14.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField14KeyReleased(evt);
             }
         });
 
+        jTextField15.setEnabled(false);
         jTextField15.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField15KeyReleased(evt);
             }
         });
 
+        jTextField16.setEnabled(false);
         jTextField16.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField16KeyReleased(evt);
             }
         });
 
+        jTextField17.setEnabled(false);
         jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField17KeyReleased(evt);
             }
         });
 
+        jTextField18.setEnabled(false);
         jTextField18.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField18KeyReleased(evt);
             }
         });
 
+        jTextField19.setEnabled(false);
         jTextField19.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField19KeyReleased(evt);
             }
         });
 
+        jTextField20.setEnabled(false);
         jTextField20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField20ActionPerformed(evt);
@@ -440,6 +449,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
             }
         });
 
+        jTextField21.setEnabled(false);
         jTextField21.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField21KeyReleased(evt);
@@ -456,54 +466,63 @@ public class InterfaceFrame extends javax.swing.JFrame {
             }
         });
 
+        jTextField23.setEnabled(false);
         jTextField23.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField23KeyReleased(evt);
             }
         });
 
+        jTextField24.setEnabled(false);
         jTextField24.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField24KeyReleased(evt);
             }
         });
 
+        jTextField25.setEnabled(false);
         jTextField25.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField25KeyReleased(evt);
             }
         });
 
+        jTextField26.setEnabled(false);
         jTextField26.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField26KeyReleased(evt);
             }
         });
 
+        jTextField27.setEnabled(false);
         jTextField27.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField27KeyReleased(evt);
             }
         });
 
+        jTextField28.setEnabled(false);
         jTextField28.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField28KeyReleased(evt);
             }
         });
 
+        jTextField29.setEnabled(false);
         jTextField29.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField29KeyReleased(evt);
             }
         });
 
+        jTextField30.setEnabled(false);
         jTextField30.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField30KeyReleased(evt);
             }
         });
 
+        jTextField31.setEnabled(false);
         jTextField31.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField31KeyReleased(evt);
@@ -550,10 +569,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel24))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel26))))
+                                .addComponent(jLabel24))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addComponent(jLabel27)
@@ -590,9 +606,12 @@ public class InterfaceFrame extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel26)))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -686,7 +705,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jLabel29))
-                .addGap(0, 27, Short.MAX_VALUE))
+                .addGap(0, 91, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mealtime insulin dose - personal insulin sensitivity", jPanel3);
@@ -704,8 +723,8 @@ public class InterfaceFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
 
         pack();
@@ -842,30 +861,119 @@ public class InterfaceFrame extends javax.swing.JFrame {
     */
     private void jTextField15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField15.getText());
+            if (input >= 0 && input <= 10) {
+                jTextField15.setForeground(Color.green);
+                jTextField16.setEnabled(true);
+            } else {
+                jTextField15.setForeground(Color.red);
+                jTextField16.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField15.setForeground(Color.red);
+            jTextField16.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField15KeyReleased
 
     private void jTextField14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField14KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField14.getText());
+            if (input >= 0 && input <= 10) {
+                jTextField14.setForeground(Color.green);
+                jTextField15.setEnabled(true);
+            } else {
+                jTextField14.setForeground(Color.red);
+                jTextField15.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField14.setForeground(Color.red);
+            jTextField15.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField14KeyReleased
 
     private void jTextField13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField13KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField13.getText());
+            if (input >= 0 && input <= 10) {
+                jTextField13.setForeground(Color.green);
+                jTextField14.setEnabled(true);
+            } else {
+                jTextField13.setForeground(Color.red);
+                jTextField14.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField13.setForeground(Color.red);
+            jTextField14.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField13KeyReleased
 
     private void jTextField12KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField12.getText());
+            if (input >= 0 && input <= 10) {
+                jTextField12.setForeground(Color.green);
+                jTextField13.setEnabled(true);
+            } else {
+                jTextField12.setForeground(Color.red);
+                jTextField13.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField12.setForeground(Color.red);
+            jTextField13.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField12KeyReleased
 
     private void jTextField11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField11.getText());
+            if (input >= 0 && input <= 10) {
+                jTextField11.setForeground(Color.green);
+            } else {
+                jTextField11.setForeground(Color.red);
+            }
+        } catch (Exception e) {
+            jTextField11.setForeground(Color.red);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField11KeyReleased
 
     private void jTextField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField10.getText());
+            if (input >= 80 && input <= 120) {
+                jTextField10.setForeground(Color.green);
+            } else {
+                jTextField10.setForeground(Color.red);
+            }
+        } catch (Exception e) {
+            jTextField10.setForeground(Color.red);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField10KeyReleased
 
     private void jTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField9.getText());
+            if (input >= 120 && input <= 250) {
+                jTextField9.setForeground(Color.green);
+            } else {
+                jTextField9.setForeground(Color.red);
+            }
+        } catch (Exception e) {
+            jTextField9.setForeground(Color.red);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField9KeyReleased
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
@@ -874,10 +982,32 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
     private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField8.getText());
+            if (input >= 10 && input <= 15) {
+                jTextField8.setForeground(Color.green);
+            } else {
+                jTextField8.setForeground(Color.red);
+            }
+        } catch (Exception e) {
+            jTextField8.setForeground(Color.red);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField8KeyReleased
 
     private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField7.getText());
+            if (input >= 60 && input <= 120) {
+                jTextField7.setForeground(Color.green);
+            } else {
+                jTextField7.setForeground(Color.red);
+            }
+        } catch (Exception e) {
+            jTextField7.setForeground(Color.red);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField7KeyReleased
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
@@ -886,70 +1016,343 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
     private void jTextField16KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField16KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField16.getText());
+            if (input >= 0 && input <= 10) {
+                jTextField16.setForeground(Color.green);
+                jTextField17.setEnabled(true);
+            } else {
+                jTextField16.setForeground(Color.red);
+                jTextField17.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField16.setForeground(Color.red);
+            jTextField17.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField16KeyReleased
 
     private void jTextField17KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField17KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField17.getText());
+            if (input >= 0 && input <= 10) {
+                jTextField17.setForeground(Color.green);
+                jTextField18.setEnabled(true);
+            } else {
+                jTextField17.setForeground(Color.red);
+                jTextField18.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField17.setForeground(Color.red);
+            jTextField18.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField17KeyReleased
 
     private void jTextField18KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField18.getText());
+            if (input >= 0 && input <= 10) {
+                jTextField18.setForeground(Color.green);
+                jTextField19.setEnabled(true);
+            } else {
+                jTextField18.setForeground(Color.red);
+                jTextField19.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField18.setForeground(Color.red);
+            jTextField19.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField18KeyReleased
 
     private void jTextField19KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField19KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField19.getText());
+            if (input >= 0 && input <= 10) {
+                jTextField19.setForeground(Color.green);
+                jTextField20.setEnabled(true);
+            } else {
+                jTextField19.setForeground(Color.red);
+                jTextField20.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField19.setForeground(Color.red);
+            jTextField20.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField19KeyReleased
 
     private void jTextField20KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField20KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField20.getText());
+            if (input >= 0 && input <= 10) {
+                jTextField20.setForeground(Color.green);
+                jTextField21.setEnabled(true);
+            } else {
+                jTextField20.setForeground(Color.red);
+                jTextField21.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField20.setForeground(Color.red);
+            jTextField21.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField20KeyReleased
 
     private void jTextField21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField21KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField21.getText());
+            if (input >= 0 && input <= 10) {
+                jTextField21.setForeground(Color.green);
+            } else {
+                jTextField21.setForeground(Color.red);
+            }
+        } catch (Exception e) {
+            jTextField21.setForeground(Color.red);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField21KeyReleased
 
     private void jTextField22KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField22KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField22.getText());
+            if (input >= 15 && input <= 100) {
+                jTextField22.setForeground(Color.green);
+                jTextField23.setEnabled(true);
+            } else {
+                jTextField22.setForeground(Color.red);
+                jTextField23.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField22.setForeground(Color.red);
+            jTextField23.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField22KeyReleased
 
     private void jTextField23KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField23KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField23.getText());
+            if (input >= 15 && input <= 100) {
+                jTextField23.setForeground(Color.green);
+                jTextField24.setEnabled(true);
+            } else {
+                jTextField23.setForeground(Color.red);
+                jTextField24.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField23.setForeground(Color.red);
+            jTextField24.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField23KeyReleased
 
     private void jTextField24KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField24KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField24.getText());
+            if (input >= 15 && input <= 100) {
+                jTextField24.setForeground(Color.green);
+                jTextField25.setEnabled(true);
+            } else {
+                jTextField24.setForeground(Color.red);
+                jTextField25.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField24.setForeground(Color.red);
+            jTextField25.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField24KeyReleased
 
     private void jTextField25KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField25KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField25.getText());
+            if (input >= 15 && input <= 100) {
+                jTextField25.setForeground(Color.green);
+                jTextField26.setEnabled(true);
+            } else {
+                jTextField25.setForeground(Color.red);
+                jTextField26.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField25.setForeground(Color.red);
+            jTextField26.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField25KeyReleased
 
     private void jTextField26KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField26KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField26.getText());
+            if (input >= 15 && input <= 100) {
+                jTextField26.setForeground(Color.green);
+                jTextField27.setEnabled(true);
+            } else {
+                jTextField26.setForeground(Color.red);
+                jTextField27.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField26.setForeground(Color.red);
+            jTextField27.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField26KeyReleased
 
     private void jTextField27KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField27KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField27.getText());
+            if (input >= 15 && input <= 100) {
+                jTextField27.setForeground(Color.green);
+                jTextField28.setEnabled(true);
+            } else {
+                jTextField27.setForeground(Color.red);
+                jTextField28.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField27.setForeground(Color.red);
+            jTextField28.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField27KeyReleased
 
     private void jTextField28KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField28KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField28.getText());
+            if (input >= 15 && input <= 100) {
+                jTextField28.setForeground(Color.green);
+                jTextField29.setEnabled(true);
+            } else {
+                jTextField28.setForeground(Color.red);
+                jTextField29.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField28.setForeground(Color.red);
+            jTextField29.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField28KeyReleased
 
     private void jTextField29KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField29KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField29.getText());
+            if (input >= 15 && input <= 100) {
+                jTextField29.setForeground(Color.green);
+                jTextField30.setEnabled(true);
+            } else {
+                jTextField29.setForeground(Color.red);
+                jTextField30.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField29.setForeground(Color.red);
+            jTextField30.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField29KeyReleased
 
     private void jTextField30KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField30KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField30.getText());
+            if (input >= 15 && input <= 100) {
+                jTextField30.setForeground(Color.green);
+                jTextField31.setEnabled(true);
+            } else {
+                jTextField30.setForeground(Color.red);
+                jTextField31.setEnabled(false);
+            }
+        } catch (Exception e) {
+            jTextField30.setForeground(Color.red);
+            jTextField31.setEnabled(false);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField30KeyReleased
 
     private void jTextField31KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField31KeyReleased
         // TODO add your handling code here:
+        try {
+            float input = Float.parseFloat(jTextField31.getText());
+            if (input >= 15 && input <= 100) {
+                jTextField31.setForeground(Color.green);
+            } else {
+                jTextField31.setForeground(Color.red);
+            }
+        } catch (Exception e) {
+            jTextField31.setForeground(Color.red);
+        }
+        checkInputs3();
     }//GEN-LAST:event_jTextField31KeyReleased
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        int input1=Integer.parseInt(jTextField7.getText());
+        int input2=Integer.parseInt(jTextField8.getText());
+        int input3=Integer.parseInt(jTextField9.getText());
+        int input4=Integer.parseInt(jTextField10.getText());
+        int input5=Integer.parseInt(jTextField11.getText());
+        
+        ArrayList <Integer> physicalActivitySamples = new ArrayList<Integer>();
+        int[] physicalActivitySamplesArray;
+        try{
+            physicalActivitySamples.add(Integer.parseInt(jTextField12.getText()));
+            physicalActivitySamples.add(Integer.parseInt(jTextField13.getText()));
+            physicalActivitySamples.add(Integer.parseInt(jTextField14.getText()));
+            physicalActivitySamples.add(Integer.parseInt(jTextField15.getText()));
+            physicalActivitySamples.add(Integer.parseInt(jTextField16.getText()));
+            physicalActivitySamples.add(Integer.parseInt(jTextField17.getText()));
+            physicalActivitySamples.add(Integer.parseInt(jTextField18.getText()));
+            physicalActivitySamples.add(Integer.parseInt(jTextField19.getText()));
+            physicalActivitySamples.add(Integer.parseInt(jTextField20.getText()));
+            physicalActivitySamples.add(Integer.parseInt(jTextField21.getText()));
+        }
+        catch(Exception e){
+            System.out.println("No more physical activity samples");
+        }
+        finally{
+            physicalActivitySamplesArray = new int[physicalActivitySamples.size()];
+            for(int i=0;i<physicalActivitySamples.size();i++){
+                physicalActivitySamplesArray[i] = physicalActivitySamples.get(i);
+            }
+        }
+        
+        ArrayList <Integer> bloodSugarDropSamples = new ArrayList<Integer>();
+        int[] bloodSugarDropSamplesArray;
+        try{
+            bloodSugarDropSamples.add(Integer.parseInt(jTextField22.getText()));
+            bloodSugarDropSamples.add(Integer.parseInt(jTextField23.getText()));
+            bloodSugarDropSamples.add(Integer.parseInt(jTextField24.getText()));
+            bloodSugarDropSamples.add(Integer.parseInt(jTextField25.getText()));
+            bloodSugarDropSamples.add(Integer.parseInt(jTextField26.getText()));
+            bloodSugarDropSamples.add(Integer.parseInt(jTextField27.getText()));
+            bloodSugarDropSamples.add(Integer.parseInt(jTextField28.getText()));
+            bloodSugarDropSamples.add(Integer.parseInt(jTextField29.getText()));
+            bloodSugarDropSamples.add(Integer.parseInt(jTextField30.getText()));
+            bloodSugarDropSamples.add(Integer.parseInt(jTextField31.getText()));
+        }
+        catch(Exception e){
+            System.out.println("No more blood sugar drop samples");
+        }
+        finally{
+            bloodSugarDropSamplesArray = new int[bloodSugarDropSamples.size()];
+            for(int i=0;i<physicalActivitySamples.size();i++){
+                bloodSugarDropSamplesArray[i] = bloodSugarDropSamples.get(i);
+            }
+        }
+        
+        voter.personalSensitivityToInsulinCalculation(input1, input2, input3, input4, input5, physicalActivitySamplesArray, bloodSugarDropSamplesArray);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
@@ -1081,6 +1484,25 @@ public class InterfaceFrame extends javax.swing.JFrame {
         }
         else{
             jButton2.setEnabled(false);
+        }
+    }
+    
+    private void checkInputs3() {
+        
+        if (jTextField7.getForeground().equals(Color.green)
+                && jTextField8.getForeground().equals(Color.green)
+                && jTextField9.getForeground().equals(Color.green)
+                && jTextField10.getForeground().equals(Color.green)
+                && jTextField11.getForeground().equals(Color.green)
+                && jTextField12.getForeground().equals(Color.green)
+                && jTextField13.getForeground().equals(Color.green)
+                && jTextField22.getForeground().equals(Color.green)
+                && jTextField23.getForeground().equals(Color.green)) {
+            
+            jButton3.setEnabled(true);
+        }
+        else{
+            jButton3.setEnabled(false);
         }
     }
 }
