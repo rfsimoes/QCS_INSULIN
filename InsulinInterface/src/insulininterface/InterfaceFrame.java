@@ -254,7 +254,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Mealtime insulin dose ‐ standard insulin sensitivity", jPanel1);
+        jTabbedPane1.addTab("Mealtime insulin dose - standard insulin sensitivity", jPanel1);
 
         jLabel12.setText("Body weight:");
 
@@ -689,7 +689,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
                 .addGap(0, 27, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Mealtime insulin dose -personal insulin sensitivity", jPanel3);
+        jTabbedPane1.addTab("Mealtime insulin dose - personal insulin sensitivity", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -811,10 +811,14 @@ public class InterfaceFrame extends javax.swing.JFrame {
         voter.mealtimeInsulinDoseCalculationUsingStandardInsulinSensitivity(input1,input2,input3,input4,input5);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    /**
+    **   Background insulin dose
+    */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Calculate insulin dose
         int input1 = Integer.parseInt(jTextField6.getText());
-        
+        voter.backgroundInsulinDoseCalculation(input1);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyReleased
@@ -832,6 +836,10 @@ public class InterfaceFrame extends javax.swing.JFrame {
         checkInputs2();
     }//GEN-LAST:event_jTextField6KeyReleased
 
+    
+    /**
+    **      Mealtime insulin dose - personal insulin sensitivity
+    */
     private void jTextField15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField15KeyReleased

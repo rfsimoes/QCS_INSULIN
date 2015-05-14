@@ -88,7 +88,12 @@ public class Voter {
                         
                     }
                     else if(method==BACKGROUND_INSULINE){
-                        
+                        int result = calculator.backgroundInsulinDose(bodyWeight);
+                        System.out.println(wsdl);
+                        System.out.println(result);
+                        synchronized(thisInstance){
+                            vec.add(result);
+                        }
                     }
                 } catch (MalformedURLException ex) {
                     System.out.println("Malformed URL");
@@ -139,6 +144,14 @@ public class Voter {
         this.personalSensitivity = personalSensitivity;
 
         return getService(MEALTIME_INSULINE_STANDART);
+    }
+    
+    private int bodyWeight;
+    
+    public int backgroundInsulinDoseCalculation(int bodyWeight) {
+        this.bodyWeight = bodyWeight;
+
+        return getService(BACKGROUND_INSULINE);
     }
 
     public static void main(String[] args) throws Exception {
