@@ -8,6 +8,7 @@ package insulininterface;
 import java.awt.Color;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import server.InsulinDoseCalculator;
 import voter.Voter;
@@ -107,6 +108,12 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Insuline Calculator");
+
+        jTabbedPane1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTabbedPane1FocusGained(evt);
+            }
+        });
 
         jLabel2.setText("Total grams of carbohydrates in the meal:");
 
@@ -1233,6 +1240,45 @@ public class InterfaceFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         sample1Handler(jTextField12);
     }//GEN-LAST:event_jTextField12KeyReleased
+
+    private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
+        // Limpar campos de input
+        int jPanel = jTabbedPane1.getSelectedIndex();
+        
+        if(jPanel == 0){
+            JTextField[] jTextFieldEmpty = {jTextField1, jTextField3, jTextField4};
+            
+            for(JTextField jTextField : jTextFieldEmpty){
+                jTextField.setText("");
+                jTextField.setForeground(Color.black);
+            }
+            jTextField2.setText("12");
+            jTextField2.setForeground(Color.green);
+            
+            jTextField5.setText("50");
+            jTextField5.setForeground(Color.green);
+            jButton1.setEnabled(false);
+        }
+        else if(jPanel == 1){
+            jTextField6.setText("");
+            jTextField6.setForeground(Color.black);
+            jButton2.setEnabled(false);
+        }
+        else if(jPanel == 2){
+            JTextField[] jTextFieldEmpty = {jTextField7, jTextField9, jTextField10, jTextField11, jTextField12,
+                jTextField13, jTextField14, jTextField15, jTextField16, jTextField17, jTextField18, jTextField19,
+                jTextField20, jTextField21, jTextField22, jTextField23, jTextField24, jTextField25, jTextField26,
+                jTextField27, jTextField28, jTextField29, jTextField30, jTextField31};
+            
+            for(JTextField jTextField : jTextFieldEmpty){
+                jTextField.setText("");
+                jTextField.setForeground(Color.black);
+            }
+            jTextField5.setText("12");
+            jTextField5.setForeground(Color.green);
+            jButton1.setEnabled(false);
+        }
+    }//GEN-LAST:event_jTabbedPane1FocusGained
 
     /**
      * @param args the command line arguments
