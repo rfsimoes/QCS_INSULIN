@@ -3,7 +3,7 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 
 @WebService
-public interface InsulinDoseCalculatorInterface {
+public interface InsulinDoseCalculator {
     @WebMethod
     int mealtimeInsulinDose(int carbohydrateAmount,
                       int carbohydrateToInsulinRatio,

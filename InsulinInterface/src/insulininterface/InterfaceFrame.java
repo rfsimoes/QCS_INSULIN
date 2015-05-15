@@ -9,7 +9,6 @@ import java.awt.Color;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import javax.swing.JTextField;
-import server.InsulinDoseCalculator;
 import voter.Voter;
 
 /**
@@ -322,11 +321,6 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
         jLabel15.setText("Total grams of carbohydrates in the meal:");
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
         jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField7KeyReleased(evt);
@@ -349,11 +343,6 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
         jLabel19.setText("actual blood sugar level measured before the meal:");
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
-            }
-        });
         jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField9KeyReleased(evt);
@@ -722,76 +711,31 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField1.getText());
-            if (input >= 60 && input <= 120) {
-                jTextField1.setForeground(Color.green);
-            } else {
-                jTextField1.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField1.setForeground(Color.red);
-        }
+        validateInput(jTextField1, 60, 120);
         checkInputs();
     }//GEN-LAST:event_jTextField1KeyReleased
 
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField2.getText());
-            if (input >= 10 && input <= 15) {
-                jTextField2.setForeground(Color.green);
-            } else {
-                jTextField2.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField2.setForeground(Color.red);
-        }
+        validateInput(jTextField2, 10, 15);
         checkInputs();
     }//GEN-LAST:event_jTextField2KeyReleased
 
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField3.getText());
-            if (input >= 120 && input <= 250) {
-                jTextField3.setForeground(Color.green);
-            } else {
-                jTextField3.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField3.setForeground(Color.red);
-        }
+        validateInput(jTextField3, 120, 250);
         checkInputs();
     }//GEN-LAST:event_jTextField3KeyReleased
 
     private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField4.getText());
-            if (input >= 80 && input <= 120) {
-                jTextField4.setForeground(Color.green);
-            } else {
-                jTextField4.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField4.setForeground(Color.red);
-        }
+        validateInput(jTextField4, 80, 120);
         checkInputs();
     }//GEN-LAST:event_jTextField4KeyReleased
 
     private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField5.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField5.setForeground(Color.green);
-            } else {
-                jTextField5.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField5.setForeground(Color.red);
-        }
+        validateInput(jTextField5, 15, 100);
         checkInputs();
     }//GEN-LAST:event_jTextField5KeyReleased
 
@@ -816,277 +760,97 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
     private void jTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField6.getText());
-            if (input >= 40 && input <= 130) {
-                jTextField6.setForeground(Color.green);
-            } else {
-                jTextField6.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField6.setForeground(Color.red);
-        }
+        validateInput(jTextField6, 40, 130);
         checkInputs2();
     }//GEN-LAST:event_jTextField6KeyReleased
 
 
     private void jTextField11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField11.getText());
-            if (input >= 0 && input <= 10) {
-                jTextField11.setForeground(Color.green);
-            } else {
-                jTextField11.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField11.setForeground(Color.red);
-        }
+        validateInput(jTextField11, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField11KeyReleased
 
     private void jTextField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField10.getText());
-            if (input >= 80 && input <= 120) {
-                jTextField10.setForeground(Color.green);
-            } else {
-                jTextField10.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField10.setForeground(Color.red);
-        }
+        validateInput(jTextField10, 80, 120);
         checkInputs3();
     }//GEN-LAST:event_jTextField10KeyReleased
 
     private void jTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField9.getText());
-            if (input >= 120 && input <= 250) {
-                jTextField9.setForeground(Color.green);
-            } else {
-                jTextField9.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField9.setForeground(Color.red);
-        }
+        validateInput(jTextField9, 120, 250);
         checkInputs3();
     }//GEN-LAST:event_jTextField9KeyReleased
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
     private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField8.getText());
-            if (input >= 10 && input <= 15) {
-                jTextField8.setForeground(Color.green);
-            } else {
-                jTextField8.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField8.setForeground(Color.red);
-        }
+        validateInput(jTextField8, 10, 15);
         checkInputs3();
     }//GEN-LAST:event_jTextField8KeyReleased
 
     private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField7.getText());
-            if (input >= 60 && input <= 120) {
-                jTextField7.setForeground(Color.green);
-            } else {
-                jTextField7.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField7.setForeground(Color.red);
-        }
+        validateInput(jTextField7, 60, 120);
         checkInputs3();
     }//GEN-LAST:event_jTextField7KeyReleased
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
     private void jTextField22KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField22KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField22.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField22.setForeground(Color.green);
-                jTextField23.setEnabled(true);
-            } else {
-                jTextField22.setForeground(Color.red);
-                jTextField23.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField22.setForeground(Color.red);
-            jTextField23.setEnabled(false);
-        }
+        validateInput(jTextField22, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField22KeyReleased
 
     private void jTextField23KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField23KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField23.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField23.setForeground(Color.green);
-                jTextField24.setEnabled(true);
-            } else {
-                jTextField23.setForeground(Color.red);
-                jTextField24.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField23.setForeground(Color.red);
-            jTextField24.setEnabled(false);
-        }
+        validateInput(jTextField23, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField23KeyReleased
 
     private void jTextField24KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField24KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField24.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField24.setForeground(Color.green);
-                jTextField25.setEnabled(true);
-            } else {
-                jTextField24.setForeground(Color.red);
-                jTextField25.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField24.setForeground(Color.red);
-            jTextField25.setEnabled(false);
-        }
+        validateInput(jTextField24, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField24KeyReleased
 
     private void jTextField25KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField25KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField25.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField25.setForeground(Color.green);
-                jTextField26.setEnabled(true);
-            } else {
-                jTextField25.setForeground(Color.red);
-                jTextField26.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField25.setForeground(Color.red);
-            jTextField26.setEnabled(false);
-        }
+        validateInput(jTextField25, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField25KeyReleased
 
     private void jTextField26KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField26KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField26.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField26.setForeground(Color.green);
-                jTextField27.setEnabled(true);
-            } else {
-                jTextField26.setForeground(Color.red);
-                jTextField27.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField26.setForeground(Color.red);
-            jTextField27.setEnabled(false);
-        }
+        validateInput(jTextField26, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField26KeyReleased
 
     private void jTextField27KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField27KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField27.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField27.setForeground(Color.green);
-                jTextField28.setEnabled(true);
-            } else {
-                jTextField27.setForeground(Color.red);
-                jTextField28.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField27.setForeground(Color.red);
-            jTextField28.setEnabled(false);
-        }
+        validateInput(jTextField27, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField27KeyReleased
 
     private void jTextField28KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField28KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField28.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField28.setForeground(Color.green);
-                jTextField29.setEnabled(true);
-            } else {
-                jTextField28.setForeground(Color.red);
-                jTextField29.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField28.setForeground(Color.red);
-            jTextField29.setEnabled(false);
-        }
+        validateInput(jTextField28, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField28KeyReleased
 
     private void jTextField29KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField29KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField29.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField29.setForeground(Color.green);
-                jTextField30.setEnabled(true);
-            } else {
-                jTextField29.setForeground(Color.red);
-                jTextField30.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField29.setForeground(Color.red);
-            jTextField30.setEnabled(false);
-        }
+        validateInput(jTextField29, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField29KeyReleased
 
     private void jTextField30KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField30KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField30.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField30.setForeground(Color.green);
-                jTextField31.setEnabled(true);
-            } else {
-                jTextField30.setForeground(Color.red);
-                jTextField31.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField30.setForeground(Color.red);
-            jTextField31.setEnabled(false);
-        }
+        validateInput(jTextField30, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField30KeyReleased
 
     private void jTextField31KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField31KeyReleased
-        // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField31.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField31.setForeground(Color.green);
-            } else {
-                jTextField31.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField31.setForeground(Color.red);
-        }
+        validateInput(jTextField31, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField31KeyReleased
 
@@ -1147,64 +911,62 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
     private void jTextField21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField21KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField21);
+        validateInput(jTextField21, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField21KeyReleased
 
     private void jTextField20KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField20KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField20);
+        validateInput(jTextField20, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField20KeyReleased
 
     private void jTextField19KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField19KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField19);
+        validateInput(jTextField19, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField19KeyReleased
 
     private void jTextField18KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField18);
+        validateInput(jTextField18, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField18KeyReleased
 
     private void jTextField17KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField17KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField17);
+        validateInput(jTextField17, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField17KeyReleased
 
     private void jTextField16KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField16KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField16);
+        validateInput(jTextField16, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField16KeyReleased
 
-    /**
-     ** Mealtime insulin dose - personal insulin sensitivity
-     */
     private void jTextField15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField15);
+        validateInput(jTextField15, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField15KeyReleased
 
     private void jTextField14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField14KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField14);
+        validateInput(jTextField14, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField14KeyReleased
 
     private void jTextField13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField13KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField13);
+        validateInput(jTextField13, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField13KeyReleased
 
     private void jTextField12KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField12);
+        validateInput(jTextField12, 0, 10);
+        checkInputs3();
     }//GEN-LAST:event_jTextField12KeyReleased
 
     /**
@@ -1334,16 +1096,14 @@ public class InterfaceFrame extends javax.swing.JFrame {
     }
 
     private void checkInputs3() {
-        
+
         try {
             Object instance = getClass().getDeclaredField("stringInstance").get(this);
             Method m = instance.getClass().getMethod("split", String.class);
 
             Object returnValue = m.invoke(instance, ";");
-            if(returnValue instanceof String[])
-            {
-                for(String s : (String[])returnValue )
-                {
+            if (returnValue instanceof String[]) {
+                for (String s : (String[]) returnValue) {
                     System.out.println(s);
                 }
             }
@@ -1354,10 +1114,10 @@ public class InterfaceFrame extends javax.swing.JFrame {
         }
     }
 
-    private void sample1Handler(JTextField jTextField) {
+    void validateInput(JTextField jTextField, int min, int max) {
         try {
             float input = Float.parseFloat(jTextField.getText());
-            if (input >= 0 && input <= 10) {
+            if (input >= min && input <= max) {
                 jTextField.setForeground(Color.green);
             } else {
                 jTextField.setForeground(Color.red);
@@ -1365,6 +1125,5 @@ public class InterfaceFrame extends javax.swing.JFrame {
         } catch (Exception e) {
             jTextField.setForeground(Color.red);
         }
-        checkInputs3();
     }
 }

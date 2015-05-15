@@ -8,8 +8,8 @@ package server;
 import javax.jws.WebService;
 import org.apache.commons.math.stat.regression.SimpleRegression;
 
-@WebService(endpointInterface = "server.InsulinDoseCalculatorInterface")
-public class InsulinDoseCalculator implements InsulinDoseCalculatorInterface {
+@WebService(endpointInterface = "server.InsulinDoseCalculator")
+public class InsulinDoseCalculatorImpl implements InsulinDoseCalculator {
 
     @Override
     public int mealtimeInsulinDose(int carbohydrateAmount, int carbohydrateToInsulinRatio, int preMealBloodSugar, int targetBloodSugar, int personalSensitivity) {

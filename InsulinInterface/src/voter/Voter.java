@@ -5,26 +5,18 @@
  */
 package voter;
 
-import java.net.MalformedURLException;
-import server.InsulinDoseCalculator;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Vector;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
-import jdk.nashorn.internal.objects.NativeArray;
+import server.InsulinDoseCalculator;
 
 /**
  *
@@ -49,14 +41,15 @@ public class Voter {
     }
 
     ArrayList<Integer> vec;
-    Map<Integer,Float> hashmap; 
+    Map<Integer, Float> hashmap;
+
     private int getService(int method) {
         //save results in array
         vec = new ArrayList<>();
-        
+
         // save results in hashmap
         hashmap = new HashMap<>();
-        
+
         ExecutorService fixedPool = Executors.newFixedThreadPool(webServiceList.size());
 
         // Create a Runnable class
@@ -72,11 +65,12 @@ public class Voter {
 
             @Override
             public void run() {
-                while(true)  {
+                int nRetries = 0;
+                while(true){
                     try {
                         URL url = new URL(wsdl);
-
-                    //1st argument service URI, refer to wsdl document above
+                        System.out.println("Trying to connect to" + wsdl);
+                        //1st argument service URI, refer to wsdl document above
                         //2nd argument is service name, refer to wsdl document above
                         QName qname = new QName(namespace, webService);
                         Service service = Service.create(url, qname);
@@ -105,11 +99,15 @@ public class Voter {
                                 vec.add(result);
                             }
                         }
-                        break;
+                        return;
                     } catch (Exception ex) {
                         ex.printStackTrace();
                         try {
                             //We retry the connection every 500ms
+                            nRetries += 1;
+                            if (nRetries > 10) {
+                                return;
+                            }
                             Thread.sleep(500);
                         } catch (InterruptedException ex1) {
                             Logger.getLogger(Voter.class.getName()).log(Level.SEVERE, null, ex1);
@@ -127,7 +125,7 @@ public class Voter {
         try {
             System.out.println("waiting for pool to finish");
             fixedPool.awaitTermination(4, TimeUnit.SECONDS);
-
+            System.out.println("pool terminated");
             fixedPool.shutdownNow();
         } catch (InterruptedException ex) {
             Logger.getLogger(Voter.class.getName()).log(Level.SEVERE, null, ex);
@@ -137,49 +135,46 @@ public class Voter {
         for (int i = 0; i < vec.size(); i++) {
             System.out.println("Resultado:" + vec.get(i));
             // Se o valor não estiver no hasmap, metemo-lo lá com o contador a 1
-            if(!hashmap.containsKey(vec.get(i))){
-                hashmap.put(vec.get(i)-1, 1f);
+            if (!hashmap.containsKey(vec.get(i))) {
+                hashmap.put(vec.get(i) - 1, 1f);
                 hashmap.put(vec.get(i), 1.0001f);
-                hashmap.put(vec.get(i)+1, 1f);
-            }
-            // Se estiver, somamos 1 ao contador
-            else{
-                hashmap.put(vec.get(i)-1, hashmap.get(vec.get(i)-1)+1);
-                hashmap.put(vec.get(i), hashmap.get(vec.get(i))+1.0001f);
-                hashmap.put(vec.get(i)+1, hashmap.get(vec.get(i)+1)+1);
+                hashmap.put(vec.get(i) + 1, 1f);
+            } // Se estiver, somamos 1 ao contador
+            else {
+                hashmap.put(vec.get(i) - 1, hashmap.get(vec.get(i) - 1) + 1);
+                hashmap.put(vec.get(i), hashmap.get(vec.get(i)) + 1.0001f);
+                hashmap.put(vec.get(i) + 1, hashmap.get(vec.get(i) + 1) + 1);
             }
         }
         /*
-        for(int key : hashmap.keySet()){
-            System.out.println("Key: "+key+" Value: "+hashmap.get(key));
-        }*/
-        
+         for(int key : hashmap.keySet()){
+         System.out.println("Key: "+key+" Value: "+hashmap.get(key));
+         }*/
+
         //
-        if(hashmap.size() <= 1){
+        if (hashmap.size() <= 1) {
             return -2;
         }
-        
+
         // Ir buscar o resultado maioritário
         float majorCount = 0;
         int majorResult = 0;
-        boolean maiority=false;
-        for(int key : hashmap.keySet()){
-            if(hashmap.get(key) > majorCount){
+        boolean maiority = false;
+        for (int key : hashmap.keySet()) {
+            if (hashmap.get(key) > majorCount) {
                 majorCount = hashmap.get(key);
                 majorResult = key;
-                maiority=true;
-            }
-            else if (hashmap.get(key) == majorCount){
-                maiority=false;
+                maiority = true;
+            } else if (hashmap.get(key) == majorCount) {
+                maiority = false;
             }
         }
-        
+
         System.out.println("Resutado maioritário: " + majorResult);
-        
-        if(maiority){
+
+        if (maiority) {
             return majorResult;
-        }
-        else{
+        } else {
             return -1;
         }
     }
