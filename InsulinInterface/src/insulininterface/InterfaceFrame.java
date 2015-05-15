@@ -8,6 +8,7 @@ package insulininterface;
 import java.awt.Color;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import voter.Voter;
 
@@ -106,6 +107,12 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Insuline Calculator");
+
+        jTabbedPane1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTabbedPane1FocusGained(evt);
+            }
+        });
 
         jLabel2.setText("Total grams of carbohydrates in the meal:");
 
@@ -278,7 +285,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setText("Resultado");
+        jLabel14.setText("Resultado:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -746,7 +753,16 @@ public class InterfaceFrame extends javax.swing.JFrame {
         int input3 = Integer.parseInt(jTextField3.getText());
         int input4 = Integer.parseInt(jTextField4.getText());
         int input5 = Integer.parseInt(jTextField5.getText());
-        voter.mealtimeInsulinDoseCalculationUsingStandardInsulinSensitivity(input1, input2, input3, input4, input5);
+        int result = voter.mealtimeInsulinDoseCalculationUsingStandardInsulinSensitivity(input1, input2, input3, input4, input5);
+        if(result == -1){
+            jLabel1.setText("Resultado: It was not possible to calculate the insulin dose; please try again");
+        }
+        else if(result == -2){
+            jLabel1.setText("Resultado: Timeout");
+        }
+        else{
+            jLabel1.setText("Resultado: " + result);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -755,7 +771,16 @@ public class InterfaceFrame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Calculate insulin dose
         int input1 = Integer.parseInt(jTextField6.getText());
-        voter.backgroundInsulinDoseCalculation(input1);
+        int result = voter.backgroundInsulinDoseCalculation(input1);
+        if(result == -1){
+            jLabel14.setText("Resultado: It was not possible to calculate the insulin dose; please try again");
+        }
+        else if(result == -2){
+            jLabel14.setText("Resultado: Timeout");
+        }
+        else{
+            jLabel14.setText("Resultado: " + result);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyReleased
@@ -906,7 +931,16 @@ public class InterfaceFrame extends javax.swing.JFrame {
             }
         }
 
-        voter.personalSensitivityToInsulinCalculation(input1, input2, input3, input4, input5, physicalActivitySamplesArray, bloodSugarDropSamplesArray);
+        int result = voter.personalSensitivityToInsulinCalculation(input1, input2, input3, input4, input5, physicalActivitySamplesArray, bloodSugarDropSamplesArray);
+        if(result == -1){
+            jLabel29.setText("Resultado: It was not possible to calculate the insulin dose; please try again");
+        }
+        else if(result == -2){
+            jLabel29.setText("Resultado: Timeout");
+        }
+        else{
+            jLabel29.setText("Resultado: " + result);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField21KeyReleased
@@ -968,6 +1002,45 @@ public class InterfaceFrame extends javax.swing.JFrame {
         validateInput(jTextField12, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField12KeyReleased
+
+    private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
+        // Limpar campos de input
+        int jPanel = jTabbedPane1.getSelectedIndex();
+        
+        if(jPanel == 0){
+            JTextField[] jTextFieldEmpty = {jTextField1, jTextField3, jTextField4};
+            
+            for(JTextField jTextField : jTextFieldEmpty){
+                jTextField.setText("");
+                jTextField.setForeground(Color.black);
+            }
+            jTextField2.setText("12");
+            jTextField2.setForeground(Color.green);
+            
+            jTextField5.setText("50");
+            jTextField5.setForeground(Color.green);
+            jButton1.setEnabled(false);
+        }
+        else if(jPanel == 1){
+            jTextField6.setText("");
+            jTextField6.setForeground(Color.black);
+            jButton2.setEnabled(false);
+        }
+        else if(jPanel == 2){
+            JTextField[] jTextFieldEmpty = {jTextField7, jTextField9, jTextField10, jTextField11, jTextField12,
+                jTextField13, jTextField14, jTextField15, jTextField16, jTextField17, jTextField18, jTextField19,
+                jTextField20, jTextField21, jTextField22, jTextField23, jTextField24, jTextField25, jTextField26,
+                jTextField27, jTextField28, jTextField29, jTextField30, jTextField31};
+            
+            for(JTextField jTextField : jTextFieldEmpty){
+                jTextField.setText("");
+                jTextField.setForeground(Color.black);
+            }
+            jTextField5.setText("12");
+            jTextField5.setForeground(Color.green);
+            jButton1.setEnabled(false);
+        }
+    }//GEN-LAST:event_jTabbedPane1FocusGained
 
     /**
      * @param args the command line arguments
