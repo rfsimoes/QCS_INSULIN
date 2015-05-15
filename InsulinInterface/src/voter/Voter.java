@@ -107,7 +107,7 @@ public class Voter {
                         }
                         break;
                     } catch (Exception ex) {
-                        ex.printStackTrace();
+                        //ex.printStackTrace();
                         try {
                             //We retry the connection every 500ms
                             Thread.sleep(500);

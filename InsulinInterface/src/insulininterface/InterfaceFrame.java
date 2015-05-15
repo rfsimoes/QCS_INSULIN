@@ -279,7 +279,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setText("Resultado");
+        jLabel14.setText("Resultado:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -802,7 +802,16 @@ public class InterfaceFrame extends javax.swing.JFrame {
         int input3 = Integer.parseInt(jTextField3.getText());
         int input4 = Integer.parseInt(jTextField4.getText());
         int input5 = Integer.parseInt(jTextField5.getText());
-        voter.mealtimeInsulinDoseCalculationUsingStandardInsulinSensitivity(input1, input2, input3, input4, input5);
+        int result = voter.mealtimeInsulinDoseCalculationUsingStandardInsulinSensitivity(input1, input2, input3, input4, input5);
+        if(result == -1){
+            jLabel1.setText("Resultado: It was not possible to calculate the insulin dose; please try again");
+        }
+        else if(result == -2){
+            jLabel1.setText("Resultado: Timeout");
+        }
+        else{
+            jLabel1.setText("Resultado: " + result);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -811,7 +820,16 @@ public class InterfaceFrame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Calculate insulin dose
         int input1 = Integer.parseInt(jTextField6.getText());
-        voter.backgroundInsulinDoseCalculation(input1);
+        int result = voter.backgroundInsulinDoseCalculation(input1);
+        if(result == -1){
+            jLabel14.setText("Resultado: It was not possible to calculate the insulin dose; please try again");
+        }
+        else if(result == -2){
+            jLabel14.setText("Resultado: Timeout");
+        }
+        else{
+            jLabel14.setText("Resultado: " + result);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyReleased
@@ -1142,7 +1160,16 @@ public class InterfaceFrame extends javax.swing.JFrame {
             }
         }
 
-        voter.personalSensitivityToInsulinCalculation(input1, input2, input3, input4, input5, physicalActivitySamplesArray, bloodSugarDropSamplesArray);
+        int result = voter.personalSensitivityToInsulinCalculation(input1, input2, input3, input4, input5, physicalActivitySamplesArray, bloodSugarDropSamplesArray);
+        if(result == -1){
+            jLabel29.setText("Resultado: It was not possible to calculate the insulin dose; please try again");
+        }
+        else if(result == -2){
+            jLabel29.setText("Resultado: Timeout");
+        }
+        else{
+            jLabel29.setText("Resultado: " + result);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField21KeyReleased
