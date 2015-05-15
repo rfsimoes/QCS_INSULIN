@@ -132,6 +132,11 @@ public class Voter {
         } catch (InterruptedException ex) {
             Logger.getLogger(Voter.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        // Se o array só tiver 1 ou 0 resultados, significa que ocorreu um timeout
+        if(vec.size() <= 1){
+            return -2;
+        }
 
         //AQUI LEVA O CÓDIGO DO VOTADOR. OS RESULTADOS OBTIDOS ESTÃO NO VEC
         for (int i = 0; i < vec.size(); i++) {
@@ -154,12 +159,8 @@ public class Voter {
             System.out.println("Key: "+key+" Value: "+hashmap.get(key));
         }*/
         
-        //
-        if(hashmap.size() <= 1){
-            return -2;
-        }
         
-        // Ir buscar o resultado maioritário
+        // Verificar se há maioria
         float majorCount = 0;
         int majorResult = 0;
         boolean maiority=false;
