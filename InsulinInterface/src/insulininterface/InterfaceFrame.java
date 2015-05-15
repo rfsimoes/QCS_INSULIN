@@ -6,7 +6,9 @@
 package insulininterface;
 
 import java.awt.Color;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import javax.swing.JTextField;
 import server.InsulinDoseCalculator;
 import voter.Voter;
 
@@ -15,13 +17,15 @@ import voter.Voter;
  * @author David
  */
 public class InterfaceFrame extends javax.swing.JFrame {
+
     Voter voter;
+
     /**
      * Creates new form InterfaceFrame
      */
     public InterfaceFrame() {
         initComponents();
-        voter=new Voter();
+        voter = new Voter();
     }
 
     /**
@@ -215,7 +219,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField2, jTextField3, jTextField4, jTextField5});
@@ -282,7 +286,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(282, Short.MAX_VALUE)
+                .addContainerGap(320, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -388,68 +392,54 @@ public class InterfaceFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextField13.setEnabled(false);
         jTextField13.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField13KeyReleased(evt);
             }
         });
 
-        jTextField14.setEnabled(false);
         jTextField14.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField14KeyReleased(evt);
             }
         });
 
-        jTextField15.setEnabled(false);
         jTextField15.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField15KeyReleased(evt);
             }
         });
 
-        jTextField16.setEnabled(false);
         jTextField16.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField16KeyReleased(evt);
             }
         });
 
-        jTextField17.setEnabled(false);
         jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField17KeyReleased(evt);
             }
         });
 
-        jTextField18.setEnabled(false);
         jTextField18.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField18KeyReleased(evt);
             }
         });
 
-        jTextField19.setEnabled(false);
         jTextField19.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField19KeyReleased(evt);
             }
         });
 
-        jTextField20.setEnabled(false);
-        jTextField20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField20ActionPerformed(evt);
-            }
-        });
         jTextField20.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField20KeyReleased(evt);
             }
         });
 
-        jTextField21.setEnabled(false);
         jTextField21.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField21KeyReleased(evt);
@@ -466,63 +456,54 @@ public class InterfaceFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextField23.setEnabled(false);
         jTextField23.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField23KeyReleased(evt);
             }
         });
 
-        jTextField24.setEnabled(false);
         jTextField24.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField24KeyReleased(evt);
             }
         });
 
-        jTextField25.setEnabled(false);
         jTextField25.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField25KeyReleased(evt);
             }
         });
 
-        jTextField26.setEnabled(false);
         jTextField26.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField26KeyReleased(evt);
             }
         });
 
-        jTextField27.setEnabled(false);
         jTextField27.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField27KeyReleased(evt);
             }
         });
 
-        jTextField28.setEnabled(false);
         jTextField28.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField28KeyReleased(evt);
             }
         });
 
-        jTextField29.setEnabled(false);
         jTextField29.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField29KeyReleased(evt);
             }
         });
 
-        jTextField30.setEnabled(false);
         jTextField30.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField30KeyReleased(evt);
             }
         });
 
-        jTextField31.setEnabled(false);
         jTextField31.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField31KeyReleased(evt);
@@ -546,100 +527,94 @@ public class InterfaceFrame extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel23))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jLabel15)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel18))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel20))
+                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel18)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel25)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel22))
+                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel24))))
+                                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jButton3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel29))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addComponent(jLabel27)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel28))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel16))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel25)
-                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel26)))))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jButton3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel29))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(155, Short.MAX_VALUE))
+                        .addComponent(jLabel28)))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
+
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField12, jTextField13, jTextField14, jTextField15, jTextField16, jTextField17, jTextField18, jTextField19, jTextField20, jTextField21, jTextField22, jTextField23, jTextField24, jTextField25, jTextField26, jTextField27, jTextField28, jTextField29, jTextField30, jTextField31});
+
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -664,12 +639,12 @@ public class InterfaceFrame extends javax.swing.JFrame {
                     .addComponent(jLabel21)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
                     .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
                     .addComponent(jLabel26))
@@ -685,7 +660,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
                     .addComponent(jLabel28))
@@ -705,7 +680,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jLabel29))
-                .addGap(0, 91, Short.MAX_VALUE))
+                .addGap(0, 67, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mealtime insulin dose - personal insulin sensitivity", jPanel3);
@@ -731,8 +706,8 @@ public class InterfaceFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-    **   Mealtime insulin dose ‐ standard insulin sensitivity
-    */
+     ** Mealtime insulin dose ‐ standard insulin sensitivity
+     */
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:   
     }//GEN-LAST:event_jTextField1ActionPerformed
@@ -822,18 +797,17 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int input1=Integer.parseInt(jTextField1.getText());
-        int input2=Integer.parseInt(jTextField2.getText());
-        int input3=Integer.parseInt(jTextField3.getText());
-        int input4=Integer.parseInt(jTextField4.getText());
-        int input5=Integer.parseInt(jTextField5.getText());
-        voter.mealtimeInsulinDoseCalculationUsingStandardInsulinSensitivity(input1,input2,input3,input4,input5);
+        int input1 = Integer.parseInt(jTextField1.getText());
+        int input2 = Integer.parseInt(jTextField2.getText());
+        int input3 = Integer.parseInt(jTextField3.getText());
+        int input4 = Integer.parseInt(jTextField4.getText());
+        int input5 = Integer.parseInt(jTextField5.getText());
+        voter.mealtimeInsulinDoseCalculationUsingStandardInsulinSensitivity(input1, input2, input3, input4, input5);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
     /**
-    **   Background insulin dose
-    */
+     ** Background insulin dose
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Calculate insulin dose
         int input1 = Integer.parseInt(jTextField6.getText());
@@ -855,81 +829,6 @@ public class InterfaceFrame extends javax.swing.JFrame {
         checkInputs2();
     }//GEN-LAST:event_jTextField6KeyReleased
 
-    
-    /**
-    **      Mealtime insulin dose - personal insulin sensitivity
-    */
-    private void jTextField15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyReleased
-        // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField15.getText());
-            if (input >= 0 && input <= 10) {
-                jTextField15.setForeground(Color.green);
-                jTextField16.setEnabled(true);
-            } else {
-                jTextField15.setForeground(Color.red);
-                jTextField16.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField15.setForeground(Color.red);
-            jTextField16.setEnabled(false);
-        }
-        checkInputs3();
-    }//GEN-LAST:event_jTextField15KeyReleased
-
-    private void jTextField14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField14KeyReleased
-        // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField14.getText());
-            if (input >= 0 && input <= 10) {
-                jTextField14.setForeground(Color.green);
-                jTextField15.setEnabled(true);
-            } else {
-                jTextField14.setForeground(Color.red);
-                jTextField15.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField14.setForeground(Color.red);
-            jTextField15.setEnabled(false);
-        }
-        checkInputs3();
-    }//GEN-LAST:event_jTextField14KeyReleased
-
-    private void jTextField13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField13KeyReleased
-        // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField13.getText());
-            if (input >= 0 && input <= 10) {
-                jTextField13.setForeground(Color.green);
-                jTextField14.setEnabled(true);
-            } else {
-                jTextField13.setForeground(Color.red);
-                jTextField14.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField13.setForeground(Color.red);
-            jTextField14.setEnabled(false);
-        }
-        checkInputs3();
-    }//GEN-LAST:event_jTextField13KeyReleased
-
-    private void jTextField12KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyReleased
-        // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField12.getText());
-            if (input >= 0 && input <= 10) {
-                jTextField12.setForeground(Color.green);
-                jTextField13.setEnabled(true);
-            } else {
-                jTextField12.setForeground(Color.red);
-                jTextField13.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField12.setForeground(Color.red);
-            jTextField13.setEnabled(false);
-        }
-        checkInputs3();
-    }//GEN-LAST:event_jTextField12KeyReleased
 
     private void jTextField11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyReleased
         // TODO add your handling code here:
@@ -1013,111 +912,6 @@ public class InterfaceFrame extends javax.swing.JFrame {
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jTextField16KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField16KeyReleased
-        // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField16.getText());
-            if (input >= 0 && input <= 10) {
-                jTextField16.setForeground(Color.green);
-                jTextField17.setEnabled(true);
-            } else {
-                jTextField16.setForeground(Color.red);
-                jTextField17.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField16.setForeground(Color.red);
-            jTextField17.setEnabled(false);
-        }
-        checkInputs3();
-    }//GEN-LAST:event_jTextField16KeyReleased
-
-    private void jTextField17KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField17KeyReleased
-        // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField17.getText());
-            if (input >= 0 && input <= 10) {
-                jTextField17.setForeground(Color.green);
-                jTextField18.setEnabled(true);
-            } else {
-                jTextField17.setForeground(Color.red);
-                jTextField18.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField17.setForeground(Color.red);
-            jTextField18.setEnabled(false);
-        }
-        checkInputs3();
-    }//GEN-LAST:event_jTextField17KeyReleased
-
-    private void jTextField18KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyReleased
-        // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField18.getText());
-            if (input >= 0 && input <= 10) {
-                jTextField18.setForeground(Color.green);
-                jTextField19.setEnabled(true);
-            } else {
-                jTextField18.setForeground(Color.red);
-                jTextField19.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField18.setForeground(Color.red);
-            jTextField19.setEnabled(false);
-        }
-        checkInputs3();
-    }//GEN-LAST:event_jTextField18KeyReleased
-
-    private void jTextField19KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField19KeyReleased
-        // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField19.getText());
-            if (input >= 0 && input <= 10) {
-                jTextField19.setForeground(Color.green);
-                jTextField20.setEnabled(true);
-            } else {
-                jTextField19.setForeground(Color.red);
-                jTextField20.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField19.setForeground(Color.red);
-            jTextField20.setEnabled(false);
-        }
-        checkInputs3();
-    }//GEN-LAST:event_jTextField19KeyReleased
-
-    private void jTextField20KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField20KeyReleased
-        // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField20.getText());
-            if (input >= 0 && input <= 10) {
-                jTextField20.setForeground(Color.green);
-                jTextField21.setEnabled(true);
-            } else {
-                jTextField20.setForeground(Color.red);
-                jTextField21.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField20.setForeground(Color.red);
-            jTextField21.setEnabled(false);
-        }
-        checkInputs3();
-    }//GEN-LAST:event_jTextField20KeyReleased
-
-    private void jTextField21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField21KeyReleased
-        // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField21.getText());
-            if (input >= 0 && input <= 10) {
-                jTextField21.setForeground(Color.green);
-            } else {
-                jTextField21.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField21.setForeground(Color.red);
-        }
-        checkInputs3();
-    }//GEN-LAST:event_jTextField21KeyReleased
 
     private void jTextField22KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField22KeyReleased
         // TODO add your handling code here:
@@ -1298,15 +1092,15 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        int input1=Integer.parseInt(jTextField7.getText());
-        int input2=Integer.parseInt(jTextField8.getText());
-        int input3=Integer.parseInt(jTextField9.getText());
-        int input4=Integer.parseInt(jTextField10.getText());
-        int input5=Integer.parseInt(jTextField11.getText());
-        
-        ArrayList <Integer> physicalActivitySamples = new ArrayList<Integer>();
+        int input1 = Integer.parseInt(jTextField7.getText());
+        int input2 = Integer.parseInt(jTextField8.getText());
+        int input3 = Integer.parseInt(jTextField9.getText());
+        int input4 = Integer.parseInt(jTextField10.getText());
+        int input5 = Integer.parseInt(jTextField11.getText());
+
+        ArrayList<Integer> physicalActivitySamples = new ArrayList<Integer>();
         int[] physicalActivitySamplesArray;
-        try{
+        try {
             physicalActivitySamples.add(Integer.parseInt(jTextField12.getText()));
             physicalActivitySamples.add(Integer.parseInt(jTextField13.getText()));
             physicalActivitySamples.add(Integer.parseInt(jTextField14.getText()));
@@ -1317,20 +1111,18 @@ public class InterfaceFrame extends javax.swing.JFrame {
             physicalActivitySamples.add(Integer.parseInt(jTextField19.getText()));
             physicalActivitySamples.add(Integer.parseInt(jTextField20.getText()));
             physicalActivitySamples.add(Integer.parseInt(jTextField21.getText()));
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println("No more physical activity samples");
-        }
-        finally{
+        } finally {
             physicalActivitySamplesArray = new int[physicalActivitySamples.size()];
-            for(int i=0;i<physicalActivitySamples.size();i++){
+            for (int i = 0; i < physicalActivitySamples.size(); i++) {
                 physicalActivitySamplesArray[i] = physicalActivitySamples.get(i);
             }
         }
-        
-        ArrayList <Integer> bloodSugarDropSamples = new ArrayList<Integer>();
+
+        ArrayList<Integer> bloodSugarDropSamples = new ArrayList<Integer>();
         int[] bloodSugarDropSamplesArray;
-        try{
+        try {
             bloodSugarDropSamples.add(Integer.parseInt(jTextField22.getText()));
             bloodSugarDropSamples.add(Integer.parseInt(jTextField23.getText()));
             bloodSugarDropSamples.add(Integer.parseInt(jTextField24.getText()));
@@ -1341,23 +1133,79 @@ public class InterfaceFrame extends javax.swing.JFrame {
             bloodSugarDropSamples.add(Integer.parseInt(jTextField29.getText()));
             bloodSugarDropSamples.add(Integer.parseInt(jTextField30.getText()));
             bloodSugarDropSamples.add(Integer.parseInt(jTextField31.getText()));
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println("No more blood sugar drop samples");
-        }
-        finally{
+        } finally {
             bloodSugarDropSamplesArray = new int[bloodSugarDropSamples.size()];
-            for(int i=0;i<physicalActivitySamples.size();i++){
+            for (int i = 0; i < physicalActivitySamples.size(); i++) {
                 bloodSugarDropSamplesArray[i] = bloodSugarDropSamples.get(i);
             }
         }
-        
+
         voter.personalSensitivityToInsulinCalculation(input1, input2, input3, input4, input5, physicalActivitySamplesArray, bloodSugarDropSamplesArray);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
+    private void jTextField21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField21KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField20ActionPerformed
+        sample1Handler(jTextField21);
+        checkInputs3();
+    }//GEN-LAST:event_jTextField21KeyReleased
+
+    private void jTextField20KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField20KeyReleased
+        // TODO add your handling code here:
+        sample1Handler(jTextField20);
+        checkInputs3();
+    }//GEN-LAST:event_jTextField20KeyReleased
+
+    private void jTextField19KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField19KeyReleased
+        // TODO add your handling code here:
+        sample1Handler(jTextField19);
+        checkInputs3();
+    }//GEN-LAST:event_jTextField19KeyReleased
+
+    private void jTextField18KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyReleased
+        // TODO add your handling code here:
+        sample1Handler(jTextField18);
+        checkInputs3();
+    }//GEN-LAST:event_jTextField18KeyReleased
+
+    private void jTextField17KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField17KeyReleased
+        // TODO add your handling code here:
+        sample1Handler(jTextField17);
+        checkInputs3();
+    }//GEN-LAST:event_jTextField17KeyReleased
+
+    private void jTextField16KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField16KeyReleased
+        // TODO add your handling code here:
+        sample1Handler(jTextField16);
+        checkInputs3();
+    }//GEN-LAST:event_jTextField16KeyReleased
+
+    /**
+     ** Mealtime insulin dose - personal insulin sensitivity
+     */
+    private void jTextField15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyReleased
+        // TODO add your handling code here:
+        sample1Handler(jTextField15);
+        checkInputs3();
+    }//GEN-LAST:event_jTextField15KeyReleased
+
+    private void jTextField14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField14KeyReleased
+        // TODO add your handling code here:
+        sample1Handler(jTextField14);
+        checkInputs3();
+    }//GEN-LAST:event_jTextField14KeyReleased
+
+    private void jTextField13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField13KeyReleased
+        // TODO add your handling code here:
+        sample1Handler(jTextField13);
+        checkInputs3();
+    }//GEN-LAST:event_jTextField13KeyReleased
+
+    private void jTextField12KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyReleased
+        // TODO add your handling code here:
+        sample1Handler(jTextField12);
+    }//GEN-LAST:event_jTextField12KeyReleased
 
     /**
      * @param args the command line arguments
@@ -1470,39 +1318,53 @@ public class InterfaceFrame extends javax.swing.JFrame {
                 && jTextField3.getForeground().equals(Color.green)
                 && jTextField4.getForeground().equals(Color.green)
                 && jTextField5.getForeground().equals(Color.green)) {
-            
+
             jButton1.setEnabled(true);
-        }
-        else{
+        } else {
             jButton1.setEnabled(false);
         }
     }
-    
+
     private void checkInputs2() {
         if (jTextField6.getForeground().equals(Color.green)) {
             jButton2.setEnabled(true);
-        }
-        else{
+        } else {
             jButton2.setEnabled(false);
         }
     }
-    
+
     private void checkInputs3() {
         
-        if (jTextField7.getForeground().equals(Color.green)
-                && jTextField8.getForeground().equals(Color.green)
-                && jTextField9.getForeground().equals(Color.green)
-                && jTextField10.getForeground().equals(Color.green)
-                && jTextField11.getForeground().equals(Color.green)
-                && jTextField12.getForeground().equals(Color.green)
-                && jTextField13.getForeground().equals(Color.green)
-                && jTextField22.getForeground().equals(Color.green)
-                && jTextField23.getForeground().equals(Color.green)) {
-            
-            jButton3.setEnabled(true);
+        try {
+            Object instance = getClass().getDeclaredField("stringInstance").get(this);
+            Method m = instance.getClass().getMethod("split", String.class);
+
+            Object returnValue = m.invoke(instance, ";");
+            if(returnValue instanceof String[])
+            {
+                for(String s : (String[])returnValue )
+                {
+                    System.out.println(s);
+                }
+            }
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-        else{
-            jButton3.setEnabled(false);
+    }
+
+    private void sample1Handler(JTextField jTextField) {
+        try {
+            float input = Float.parseFloat(jTextField.getText());
+            if (input >= 0 && input <= 10) {
+                jTextField.setForeground(Color.green);
+            } else {
+                jTextField.setForeground(Color.red);
+            }
+        } catch (Exception e) {
+            jTextField.setForeground(Color.red);
         }
+        checkInputs3();
     }
 }
