@@ -130,6 +130,7 @@ public class Voter {
         } catch (InterruptedException ex) {
             Logger.getLogger(Voter.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //asdf
 
         //AQUI LEVA O CÓDIGO DO VOTADOR. OS RESULTADOS OBTIDOS ESTÃO NO VEC
         for (int i = 0; i < vec.size(); i++) {
