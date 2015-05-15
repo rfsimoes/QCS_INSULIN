@@ -1096,7 +1096,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
     }
 
     private void checkInputs3() {
-
+        
         try {
             Object instance = getClass().getDeclaredField("stringInstance").get(this);
             Method m = instance.getClass().getMethod("split", String.class);
