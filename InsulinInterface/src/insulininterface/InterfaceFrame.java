@@ -10,7 +10,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import server.InsulinDoseCalculator;
 import voter.Voter;
 
 /**
@@ -26,6 +25,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
      */
     public InterfaceFrame() {
         initComponents();
+        jTextField1.requestFocus();
         voter = new Voter();
     }
 
@@ -55,14 +55,12 @@ public class InterfaceFrame extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
@@ -103,15 +101,19 @@ public class InterfaceFrame extends javax.swing.JFrame {
         jTextField29 = new javax.swing.JTextField();
         jTextField30 = new javax.swing.JTextField();
         jTextField31 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jLabel29 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Insuline Calculator");
+        setMinimumSize(new java.awt.Dimension(500, 550));
 
-        jTabbedPane1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTabbedPane1FocusGained(evt);
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
             }
         });
 
@@ -184,15 +186,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
         jLabel11.setText("15-100 mg/dl");
 
-        jButton1.setText("Calculate insulin dose");
-        jButton1.setEnabled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Resultado:");
+        jLabel31.setText(" ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -223,10 +217,9 @@ public class InterfaceFrame extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)))
-                .addContainerGap(193, Short.MAX_VALUE))
+                        .addGap(153, 153, 153)
+                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField2, jTextField3, jTextField4, jTextField5});
@@ -259,11 +252,9 @@ public class InterfaceFrame extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1))
-                .addContainerGap())
+                .addGap(78, 78, 78)
+                .addComponent(jLabel31)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mealtime insulin dose - standard insulin sensitivity", jPanel1);
@@ -278,62 +269,43 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
         jLabel13.setText("40-130 kg");
 
-        jButton2.setText("Calculate insulin dose");
-        jButton2.setEnabled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jLabel14.setText("Resultado:");
+        jLabel30.setText(" ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(320, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel13)
-                .addGap(186, 186, 186))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(jButton2))
+                        .addGap(163, 163, 163)
+                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(jLabel14)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(279, 279, 279)
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel13)))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel13)
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addGap(32, 32, 32)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14)
-                .addContainerGap(258, Short.MAX_VALUE))
+                    .addComponent(jLabel13))
+                .addGap(98, 98, 98)
+                .addComponent(jLabel30)
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Background insulin dose", jPanel2);
 
         jLabel15.setText("Total grams of carbohydrates in the meal:");
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
         jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField7KeyReleased(evt);
@@ -356,11 +328,6 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
         jLabel19.setText("actual blood sugar level measured before the meal:");
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
-            }
-        });
         jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField9KeyReleased(evt);
@@ -517,15 +484,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Calculate insulin dose");
-        jButton3.setEnabled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jLabel29.setText("Resultado:");
+        jLabel32.setText(" ");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -536,10 +495,9 @@ public class InterfaceFrame extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addContainerGap()
+                                .addGap(109, 109, 109)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel19)
-                                    .addComponent(jLabel17)
                                     .addComponent(jLabel21)
                                     .addComponent(jLabel23)
                                     .addComponent(jLabel15)))
@@ -549,7 +507,10 @@ public class InterfaceFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel17)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -589,35 +550,33 @@ public class InterfaceFrame extends javax.swing.JFrame {
                                     .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel29))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addComponent(jLabel27)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel28)))
                 .addContainerGap(113, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField12, jTextField13, jTextField14, jTextField15, jTextField16, jTextField17, jTextField18, jTextField19, jTextField20, jTextField21, jTextField22, jTextField23, jTextField24, jTextField25, jTextField26, jTextField27, jTextField28, jTextField29, jTextField30, jTextField31});
@@ -631,10 +590,9 @@ public class InterfaceFrame extends javax.swing.JFrame {
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel18))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
                     .addComponent(jLabel17))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -683,14 +641,32 @@ public class InterfaceFrame extends javax.swing.JFrame {
                     .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jLabel29))
-                .addGap(0, 67, Short.MAX_VALUE))
+                .addGap(71, 71, 71)
+                .addComponent(jLabel32)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mealtime insulin dose - personal insulin sensitivity", jPanel3);
+
+        jButton5.setText("Technical Information");
+        jButton5.setEnabled(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Calculate insulin dose");
+        jButton1.setEnabled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Result:");
+
+        jLabel14.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -698,14 +674,32 @@ public class InterfaceFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(jLabel14))
                 .addContainerGap())
         );
 
@@ -729,556 +723,311 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField1.getText());
-            if (input >= 60 && input <= 120) {
-                jTextField1.setForeground(Color.green);
-            } else {
-                jTextField1.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField1.setForeground(Color.red);
-        }
+        validateInput(jTextField1, 60, 120);
         checkInputs();
     }//GEN-LAST:event_jTextField1KeyReleased
 
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField2.getText());
-            if (input >= 10 && input <= 15) {
-                jTextField2.setForeground(Color.green);
-            } else {
-                jTextField2.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField2.setForeground(Color.red);
-        }
+        validateInput(jTextField2, 10, 15);
         checkInputs();
     }//GEN-LAST:event_jTextField2KeyReleased
 
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField3.getText());
-            if (input >= 120 && input <= 250) {
-                jTextField3.setForeground(Color.green);
-            } else {
-                jTextField3.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField3.setForeground(Color.red);
-        }
+        validateInput(jTextField3, 120, 250);
         checkInputs();
     }//GEN-LAST:event_jTextField3KeyReleased
 
     private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField4.getText());
-            if (input >= 80 && input <= 120) {
-                jTextField4.setForeground(Color.green);
-            } else {
-                jTextField4.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField4.setForeground(Color.red);
-        }
+        validateInput(jTextField4, 80, 120);
         checkInputs();
     }//GEN-LAST:event_jTextField4KeyReleased
 
     private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField5.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField5.setForeground(Color.green);
-            } else {
-                jTextField5.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField5.setForeground(Color.red);
-        }
+        validateInput(jTextField5, 15, 100);
         checkInputs();
     }//GEN-LAST:event_jTextField5KeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int input1 = Integer.parseInt(jTextField1.getText());
-        int input2 = Integer.parseInt(jTextField2.getText());
-        int input3 = Integer.parseInt(jTextField3.getText());
-        int input4 = Integer.parseInt(jTextField4.getText());
-        int input5 = Integer.parseInt(jTextField5.getText());
-        int result = voter.mealtimeInsulinDoseCalculationUsingStandardInsulinSensitivity(input1, input2, input3, input4, input5);
-        if(result == -1){
-            jLabel1.setText("Resultado: It was not possible to calculate the insulin dose; please try again");
-        }
-        else if(result == -2){
-            jLabel1.setText("Resultado: Timeout");
-        }
-        else{
-            jLabel1.setText("Resultado: " + result);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+        jLabel14.setText(" ");
+        if (lastPanelSelected == 0) {
+            int input1 = Integer.parseInt(jTextField1.getText());
+            int input2 = Integer.parseInt(jTextField2.getText());
+            int input3 = Integer.parseInt(jTextField3.getText());
+            int input4 = Integer.parseInt(jTextField4.getText());
+            int input5 = Integer.parseInt(jTextField5.getText());
+            int result = voter.mealtimeInsulinDoseCalculationUsingStandardInsulinSensitivity(input1, input2, input3, input4, input5);
+            if (result == -1) {
+                jLabel1.setText("Result: It was not possible to calculate the insulin dose; please try again");
+            } else if (result == -2) {
+                jLabel1.setText("Result: Timeout");
+            } else {
+                jLabel1.setText("Result: " + result);
+            }
+        } else if (lastPanelSelected == 1) {
+            // Calculate insulin dose
+            int input1 = Integer.parseInt(jTextField6.getText());
+            int result = voter.backgroundInsulinDoseCalculation(input1);
+            if (result == -1) {
+                jLabel1.setText("Result: It was not possible to calculate the insulin dose; please try again");
+            } else if (result == -2) {
+                jLabel1.setText("Result: Timeout");
+            } else {
+                jLabel1.setText("Result: " + result);
+            }
+        } else if (lastPanelSelected == 2) {
+            int input1 = Integer.parseInt(jTextField7.getText());
+            int input2 = Integer.parseInt(jTextField8.getText());
+            int input3 = Integer.parseInt(jTextField9.getText());
+            int input4 = Integer.parseInt(jTextField10.getText());
+            int input5 = Integer.parseInt(jTextField11.getText());
 
-    /**
-     ** Background insulin dose
-     */
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // Calculate insulin dose
-        int input1 = Integer.parseInt(jTextField6.getText());
-        int result = voter.backgroundInsulinDoseCalculation(input1);
-        if(result == -1){
-            jLabel14.setText("Resultado: It was not possible to calculate the insulin dose; please try again");
+            ArrayList<Integer> physicalActivitySamplesList = new ArrayList<Integer>();
+            ArrayList<Integer> bloodLevelSamplesList = new ArrayList<Integer>();
+            for (int i = 12; i < 22; i++) {
+                try {
+                    JTextField jTextFieldFirst = (JTextField) this.getClass().getDeclaredField("jTextField" + i).get(this);
+                    JTextField jTextFieldSecond = (JTextField) this.getClass().getDeclaredField("jTextField" + (i + 10)).get(this);
+                    //Quando encontrar um campo que não tenha sido validado, termina
+                    physicalActivitySamplesList.add(Integer.parseInt(jTextFieldFirst.getText()));
+                    bloodLevelSamplesList.add(Integer.parseInt(jTextFieldSecond.getText()));
+                } catch (Exception e) {
+                    //This cannot happen unless fields are renamed
+                }
+            }
+            int[] physicalActivitySamples = physicalActivitySamplesList.stream().mapToInt(i -> i).toArray();
+            int[] bloodLevelSamples = bloodLevelSamplesList.stream().mapToInt(i -> i).toArray();
+
+            int result = voter.personalSensitivityToInsulinCalculation(input1, input2, input3, input4, input5, physicalActivitySamples, bloodLevelSamples);
+            if (result == -1 || result == 0) {
+                jLabel1.setText("Result: It was not possible to calculate the insulin dose; please try again");
+            } else if (result == -2) {
+                jLabel1.setText("Result: Timeout");
+            } else {
+                jLabel1.setText("Result: " + result);
+            }
         }
-        else if(result == -2){
-            jLabel14.setText("Resultado: Timeout");
-        }
-        else{
-            jLabel14.setText("Resultado: " + result);
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
+        jButton5.setEnabled(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField6.getText());
-            if (input >= 40 && input <= 130) {
-                jTextField6.setForeground(Color.green);
-            } else {
-                jTextField6.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField6.setForeground(Color.red);
-        }
+        validateInput(jTextField6, 40, 130);
         checkInputs2();
     }//GEN-LAST:event_jTextField6KeyReleased
 
 
     private void jTextField11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField11.getText());
-            if (input >= 0 && input <= 10) {
-                jTextField11.setForeground(Color.green);
-            } else {
-                jTextField11.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField11.setForeground(Color.red);
-        }
+        validateInput(jTextField11, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField11KeyReleased
 
     private void jTextField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField10.getText());
-            if (input >= 80 && input <= 120) {
-                jTextField10.setForeground(Color.green);
-            } else {
-                jTextField10.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField10.setForeground(Color.red);
-        }
+        validateInput(jTextField10, 80, 120);
         checkInputs3();
     }//GEN-LAST:event_jTextField10KeyReleased
 
     private void jTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField9.getText());
-            if (input >= 120 && input <= 250) {
-                jTextField9.setForeground(Color.green);
-            } else {
-                jTextField9.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField9.setForeground(Color.red);
-        }
+        validateInput(jTextField9, 120, 250);
         checkInputs3();
     }//GEN-LAST:event_jTextField9KeyReleased
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
     private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField8.getText());
-            if (input >= 10 && input <= 15) {
-                jTextField8.setForeground(Color.green);
-            } else {
-                jTextField8.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField8.setForeground(Color.red);
-        }
+        validateInput(jTextField8, 10, 15);
         checkInputs3();
     }//GEN-LAST:event_jTextField8KeyReleased
 
     private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField7.getText());
-            if (input >= 60 && input <= 120) {
-                jTextField7.setForeground(Color.green);
-            } else {
-                jTextField7.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField7.setForeground(Color.red);
-        }
+        validateInput(jTextField7, 60, 120);
         checkInputs3();
     }//GEN-LAST:event_jTextField7KeyReleased
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
     private void jTextField22KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField22KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField22.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField22.setForeground(Color.green);
-                jTextField23.setEnabled(true);
-            } else {
-                jTextField22.setForeground(Color.red);
-                jTextField23.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField22.setForeground(Color.red);
-            jTextField23.setEnabled(false);
-        }
+        validateInput(jTextField22, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField22KeyReleased
 
     private void jTextField23KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField23KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField23.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField23.setForeground(Color.green);
-                jTextField24.setEnabled(true);
-            } else {
-                jTextField23.setForeground(Color.red);
-                jTextField24.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField23.setForeground(Color.red);
-            jTextField24.setEnabled(false);
-        }
+        validateInput(jTextField23, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField23KeyReleased
 
     private void jTextField24KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField24KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField24.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField24.setForeground(Color.green);
-                jTextField25.setEnabled(true);
-            } else {
-                jTextField24.setForeground(Color.red);
-                jTextField25.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField24.setForeground(Color.red);
-            jTextField25.setEnabled(false);
-        }
+        validateInput(jTextField24, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField24KeyReleased
 
     private void jTextField25KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField25KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField25.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField25.setForeground(Color.green);
-                jTextField26.setEnabled(true);
-            } else {
-                jTextField25.setForeground(Color.red);
-                jTextField26.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField25.setForeground(Color.red);
-            jTextField26.setEnabled(false);
-        }
+        validateInput(jTextField25, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField25KeyReleased
 
     private void jTextField26KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField26KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField26.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField26.setForeground(Color.green);
-                jTextField27.setEnabled(true);
-            } else {
-                jTextField26.setForeground(Color.red);
-                jTextField27.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField26.setForeground(Color.red);
-            jTextField27.setEnabled(false);
-        }
+        validateInput(jTextField26, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField26KeyReleased
 
     private void jTextField27KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField27KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField27.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField27.setForeground(Color.green);
-                jTextField28.setEnabled(true);
-            } else {
-                jTextField27.setForeground(Color.red);
-                jTextField28.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField27.setForeground(Color.red);
-            jTextField28.setEnabled(false);
-        }
+        validateInput(jTextField27, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField27KeyReleased
 
     private void jTextField28KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField28KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField28.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField28.setForeground(Color.green);
-                jTextField29.setEnabled(true);
-            } else {
-                jTextField28.setForeground(Color.red);
-                jTextField29.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField28.setForeground(Color.red);
-            jTextField29.setEnabled(false);
-        }
+        validateInput(jTextField28, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField28KeyReleased
 
     private void jTextField29KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField29KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField29.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField29.setForeground(Color.green);
-                jTextField30.setEnabled(true);
-            } else {
-                jTextField29.setForeground(Color.red);
-                jTextField30.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField29.setForeground(Color.red);
-            jTextField30.setEnabled(false);
-        }
+        validateInput(jTextField29, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField29KeyReleased
 
     private void jTextField30KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField30KeyReleased
         // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField30.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField30.setForeground(Color.green);
-                jTextField31.setEnabled(true);
-            } else {
-                jTextField30.setForeground(Color.red);
-                jTextField31.setEnabled(false);
-            }
-        } catch (Exception e) {
-            jTextField30.setForeground(Color.red);
-            jTextField31.setEnabled(false);
-        }
+        validateInput(jTextField30, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField30KeyReleased
 
     private void jTextField31KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField31KeyReleased
-        // TODO add your handling code here:
-        try {
-            float input = Float.parseFloat(jTextField31.getText());
-            if (input >= 15 && input <= 100) {
-                jTextField31.setForeground(Color.green);
-            } else {
-                jTextField31.setForeground(Color.red);
-            }
-        } catch (Exception e) {
-            jTextField31.setForeground(Color.red);
-        }
+        validateInput(jTextField31, 15, 100);
         checkInputs3();
     }//GEN-LAST:event_jTextField31KeyReleased
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        int input1 = Integer.parseInt(jTextField7.getText());
-        int input2 = Integer.parseInt(jTextField8.getText());
-        int input3 = Integer.parseInt(jTextField9.getText());
-        int input4 = Integer.parseInt(jTextField10.getText());
-        int input5 = Integer.parseInt(jTextField11.getText());
-
-        ArrayList<Integer> physicalActivitySamples = new ArrayList<Integer>();
-        int[] physicalActivitySamplesArray;
-        try {
-            physicalActivitySamples.add(Integer.parseInt(jTextField12.getText()));
-            physicalActivitySamples.add(Integer.parseInt(jTextField13.getText()));
-            physicalActivitySamples.add(Integer.parseInt(jTextField14.getText()));
-            physicalActivitySamples.add(Integer.parseInt(jTextField15.getText()));
-            physicalActivitySamples.add(Integer.parseInt(jTextField16.getText()));
-            physicalActivitySamples.add(Integer.parseInt(jTextField17.getText()));
-            physicalActivitySamples.add(Integer.parseInt(jTextField18.getText()));
-            physicalActivitySamples.add(Integer.parseInt(jTextField19.getText()));
-            physicalActivitySamples.add(Integer.parseInt(jTextField20.getText()));
-            physicalActivitySamples.add(Integer.parseInt(jTextField21.getText()));
-        } catch (Exception e) {
-            System.out.println("No more physical activity samples");
-        } finally {
-            physicalActivitySamplesArray = new int[physicalActivitySamples.size()];
-            for (int i = 0; i < physicalActivitySamples.size(); i++) {
-                physicalActivitySamplesArray[i] = physicalActivitySamples.get(i);
-            }
-        }
-
-        ArrayList<Integer> bloodSugarDropSamples = new ArrayList<Integer>();
-        int[] bloodSugarDropSamplesArray;
-        try {
-            bloodSugarDropSamples.add(Integer.parseInt(jTextField22.getText()));
-            bloodSugarDropSamples.add(Integer.parseInt(jTextField23.getText()));
-            bloodSugarDropSamples.add(Integer.parseInt(jTextField24.getText()));
-            bloodSugarDropSamples.add(Integer.parseInt(jTextField25.getText()));
-            bloodSugarDropSamples.add(Integer.parseInt(jTextField26.getText()));
-            bloodSugarDropSamples.add(Integer.parseInt(jTextField27.getText()));
-            bloodSugarDropSamples.add(Integer.parseInt(jTextField28.getText()));
-            bloodSugarDropSamples.add(Integer.parseInt(jTextField29.getText()));
-            bloodSugarDropSamples.add(Integer.parseInt(jTextField30.getText()));
-            bloodSugarDropSamples.add(Integer.parseInt(jTextField31.getText()));
-        } catch (Exception e) {
-            System.out.println("No more blood sugar drop samples");
-        } finally {
-            bloodSugarDropSamplesArray = new int[bloodSugarDropSamples.size()];
-            for (int i = 0; i < physicalActivitySamples.size(); i++) {
-                bloodSugarDropSamplesArray[i] = bloodSugarDropSamples.get(i);
-            }
-        }
-
-        int result = voter.personalSensitivityToInsulinCalculation(input1, input2, input3, input4, input5, physicalActivitySamplesArray, bloodSugarDropSamplesArray);
-        if(result == -1){
-            jLabel29.setText("Resultado: It was not possible to calculate the insulin dose; please try again");
-        }
-        else if(result == -2){
-            jLabel29.setText("Resultado: Timeout");
-        }
-        else{
-            jLabel29.setText("Resultado: " + result);
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jTextField21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField21KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField21);
+        validateInput(jTextField21, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField21KeyReleased
 
     private void jTextField20KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField20KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField20);
+        validateInput(jTextField20, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField20KeyReleased
 
     private void jTextField19KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField19KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField19);
+        validateInput(jTextField19, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField19KeyReleased
 
     private void jTextField18KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField18);
+        validateInput(jTextField18, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField18KeyReleased
 
     private void jTextField17KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField17KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField17);
+        validateInput(jTextField17, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField17KeyReleased
 
     private void jTextField16KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField16KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField16);
+        validateInput(jTextField16, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField16KeyReleased
 
-    /**
-     ** Mealtime insulin dose - personal insulin sensitivity
-     */
     private void jTextField15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField15);
+        validateInput(jTextField15, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField15KeyReleased
 
     private void jTextField14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField14KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField14);
+        validateInput(jTextField14, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField14KeyReleased
 
     private void jTextField13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField13KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField13);
+        validateInput(jTextField13, 0, 10);
         checkInputs3();
     }//GEN-LAST:event_jTextField13KeyReleased
 
     private void jTextField12KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyReleased
         // TODO add your handling code here:
-        sample1Handler(jTextField12);
+        validateInput(jTextField12, 0, 10);
+        checkInputs3();
     }//GEN-LAST:event_jTextField12KeyReleased
-
-    private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
+    int lastPanelSelected = 0;
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
         // Limpar campos de input
         int jPanel = jTabbedPane1.getSelectedIndex();
-        
-        if(jPanel == 0){
+        System.out.println("panel focused: " + jPanel);
+        if (jPanel == lastPanelSelected) {
+            return;
+        }
+        jButton1.setEnabled(false);
+        jButton5.setEnabled(false);
+        jLabel1.setText("Result:");
+        jLabel14.setText(" ");
+        lastPanelSelected = jPanel;
+        if (jPanel == 0) {
             JTextField[] jTextFieldEmpty = {jTextField1, jTextField3, jTextField4};
-            
-            for(JTextField jTextField : jTextFieldEmpty){
+
+            for (JTextField jTextField : jTextFieldEmpty) {
                 jTextField.setText("");
-                jTextField.setForeground(Color.black);
+                jTextField.setForeground(Color.red);
             }
             jTextField2.setText("12");
             jTextField2.setForeground(Color.green);
-            
+
             jTextField5.setText("50");
             jTextField5.setForeground(Color.green);
-            jButton1.setEnabled(false);
-        }
-        else if(jPanel == 1){
+            jTextField1.requestFocus();
+        } else if (jPanel == 1) {
             jTextField6.setText("");
-            jTextField6.setForeground(Color.black);
-            jButton2.setEnabled(false);
-        }
-        else if(jPanel == 2){
+            jTextField6.setForeground(Color.red);
+            jTextField6.requestFocus();
+        } else if (jPanel == 2) {
             JTextField[] jTextFieldEmpty = {jTextField7, jTextField9, jTextField10, jTextField11, jTextField12,
                 jTextField13, jTextField14, jTextField15, jTextField16, jTextField17, jTextField18, jTextField19,
                 jTextField20, jTextField21, jTextField22, jTextField23, jTextField24, jTextField25, jTextField26,
                 jTextField27, jTextField28, jTextField29, jTextField30, jTextField31};
-            
-            for(JTextField jTextField : jTextFieldEmpty){
+
+            for (JTextField jTextField : jTextFieldEmpty) {
                 jTextField.setText("");
-                jTextField.setForeground(Color.black);
+                jTextField.setForeground(Color.red);
             }
-            jTextField5.setText("12");
-            jTextField5.setForeground(Color.green);
-            jButton1.setEnabled(false);
+            jTextField8.setText("12");
+            jTextField8.setForeground(Color.green);
+            jTextField7.requestFocus();
         }
-    }//GEN-LAST:event_jTabbedPane1FocusGained
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        String technicalInfo = "";
+        technicalInfo += "Majority: " + voter.majorResult;
+        technicalInfo += "     #Web services: " + voter.vec.size();
+        technicalInfo += "     Results[";
+        for (int i : voter.vec) {
+            technicalInfo+=" " + i;
+        }
+        technicalInfo+=" ]";
+        jLabel14.setText(technicalInfo);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1317,8 +1066,7 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1340,8 +1088,10 @@ public class InterfaceFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1400,37 +1150,57 @@ public class InterfaceFrame extends javax.swing.JFrame {
 
     private void checkInputs2() {
         if (jTextField6.getForeground().equals(Color.green)) {
-            jButton2.setEnabled(true);
+            jButton1.setEnabled(true);
         } else {
-            jButton2.setEnabled(false);
+            jButton1.setEnabled(false);
         }
     }
 
     private void checkInputs3() {
-        
-        try {
-            Object instance = getClass().getDeclaredField("stringInstance").get(this);
-            Method m = instance.getClass().getMethod("split", String.class);
-
-            Object returnValue = m.invoke(instance, ";");
-            if(returnValue instanceof String[])
-            {
-                for(String s : (String[])returnValue )
-                {
-                    System.out.println(s);
+        boolean validInputs = true;
+        if (jTextField7.getForeground().equals(Color.green)
+                && jTextField8.getForeground().equals(Color.green)
+                && jTextField9.getForeground().equals(Color.green)
+                && jTextField10.getForeground().equals(Color.green)
+                && jTextField11.getForeground().equals(Color.green)) {
+            int numberOfSamples = 0;
+            for (int i = 12; i < 22; i++) {
+                try {
+                    JTextField jTextFieldFirst = (JTextField) this.getClass().getDeclaredField("jTextField" + i).get(this);
+                    JTextField jTextFieldSecond = (JTextField) this.getClass().getDeclaredField("jTextField" + (i + 10)).get(this);
+                    //Quando encontrar um campo que não tenha sido validado, termina
+                    if (jTextFieldFirst.getText().length() > 0 && jTextFieldSecond.getText().length() == 0
+                            || jTextFieldFirst.getText().length() == 0 && jTextFieldSecond.getText().length() > 0) {
+                        validInputs = false;
+                        break;
+                    }
+                    //Se a sample da actividade fisica e glicemia tiverem valores válidos
+                    if (jTextFieldFirst.getForeground().equals(jTextFieldSecond.getForeground())) {
+                        if (jTextFieldFirst.getForeground().equals(Color.green)) {
+                            numberOfSamples += 1;
+                        }
+                    } else { //Se um deles não estiver validado então 
+                        validInputs = false;
+                        break;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            if (numberOfSamples < 2 || !validInputs) {
+                jButton1.setEnabled(false);
+            } else {
+                jButton1.setEnabled(true);
+            }
+        } else {
+            jButton1.setEnabled(false);
         }
     }
 
-    private void sample1Handler(JTextField jTextField) {
+    void validateInput(JTextField jTextField, int min, int max) {
         try {
             float input = Float.parseFloat(jTextField.getText());
-            if (input >= 0 && input <= 10) {
+            if (input >= min && input <= max) {
                 jTextField.setForeground(Color.green);
             } else {
                 jTextField.setForeground(Color.red);
@@ -1438,6 +1208,5 @@ public class InterfaceFrame extends javax.swing.JFrame {
         } catch (Exception e) {
             jTextField.setForeground(Color.red);
         }
-        checkInputs3();
     }
 }

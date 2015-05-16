@@ -5,26 +5,20 @@
  */
 package voter;
 
-import java.net.MalformedURLException;
 import server.InsulinDoseCalculator;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Vector;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
-import jdk.nashorn.internal.objects.NativeArray;
+import server.InsulinDoseCalculatorInterface;
 
 /**
  *
@@ -39,24 +33,29 @@ public class Voter {
     static final int BACKGROUND_INSULINE = 2;
 
     ArrayList<WebService> webServiceList;
+    public int majorResult;
 
     public Voter() {
         thisInstance = this;
         webServiceList = new ArrayList<WebService>();
-        webServiceList.add(new WebService("http://localhost:8080/InsulinDoseCalculator?wsdl", "http://server/", "InsulinDoseCalculatorImplService"));
+        webServiceList.add(new WebService("http://localhost:8080/InsulinDoseCalculator?wsdl", "http://server/", "InsulinDoseCalculatorService"));
         webServiceList.add(new WebService("http://qcs01.dei.uc.pt:8080/InsulinDoseCalculator?wsdl", "http://server/", "InsulinDoseCalculatorService"));
         webServiceList.add(new WebService("http://liis-lab.dei.uc.pt:8080/Server?wsdl", "http://server/", "InsulinDoseCalculatorService"));
+        webServiceList.add(new WebService("http://qcs06.dei.uc.pt:8080/insulin?wsdl", "http://server/", "InsulinDoseCalculatorService"));
+        webServiceList.add(new WebService("http://qcs07.dei.uc.pt:8080/insulin?wsdl", "http://server/", "InsulinDoseCalculatorService"));
     }
 
-    ArrayList<Integer> vec;
-    Map<Integer,Float> hashmap; 
+    public ArrayList<Integer> vec;
+    Map<Integer, Float> hashmap;
+    boolean finishedCalculations;
+
     private int getService(int method) {
         //save results in array
         vec = new ArrayList<>();
-        
+        finishedCalculations = false;
         // save results in hashmap
         hashmap = new HashMap<>();
-        
+
         ExecutorService fixedPool = Executors.newFixedThreadPool(webServiceList.size());
 
         // Create a Runnable class
@@ -72,47 +71,61 @@ public class Voter {
 
             @Override
             public void run() {
-                while(true)  {
+                int retries = 0;
+                while (true) {
                     try {
                         URL url = new URL(wsdl);
 
-                    //1st argument service URI, refer to wsdl document above
+                        //1st argument service URI, refer to wsdl document above
                         //2nd argument is service name, refer to wsdl document above
                         QName qname = new QName(namespace, webService);
                         Service service = Service.create(url, qname);
-                        InsulinDoseCalculator calculator = service.getPort(InsulinDoseCalculator.class);
+                        InsulinDoseCalculatorInterface calculator = service.getPort(new QName(namespace, "InsulinDoseCalculatorPort"), InsulinDoseCalculatorInterface.class);
                         if (method == MEALTIME_INSULINE_STANDART) {
                             int result = calculator.mealtimeInsulinDose(carbohydrateAmount, carbohydrateToInsulinRatio, preMealBloodSugar, targetBloodSugar, personalSensitivity);
-                            System.out.println(wsdl);
-                            System.out.println(result);
-                            synchronized (thisInstance) {
-                                vec.add(result);
+                            System.out.println("Insuline Dose: " + result + "  (" + wsdl + ")");
+                            if (!finishedCalculations) {
+                                synchronized (thisInstance) {
+                                    vec.add(result);
+                                }
                             }
                         } else if (method == MEALTIME_INSULINE_PERSONALIZED) {
                             personalSensitivity = calculator.personalSensitivityToInsulin(physicalActivityLevel, physicalActivitySamples, bloodSugarDropSamples);
-                            System.out.println("Personal Sensitivity: " + personalSensitivity);
+                            System.out.println("Personal Sensivity: " + personalSensitivity + "  (" + wsdl + ")");
+                            //Personal Sensivity must be between 15 and 100 mg/dl
+                            if (!(personalSensitivity >= 15 && personalSensitivity <= 100)) {
+                                break;
+                            }
                             int result = calculator.mealtimeInsulinDose(carbohydrateAmount, carbohydrateToInsulinRatio, preMealBloodSugar, targetBloodSugar, personalSensitivity);
-                            System.out.println(wsdl);
-                            System.out.println(result);
-                            synchronized (thisInstance) {
-                                vec.add(result);
+                            System.out.println("Insuline Dose: " + result + "  (" + wsdl + ")");
+                            if (!finishedCalculations) {
+                                synchronized (thisInstance) {
+                                    vec.add(result);
+                                }
                             }
                         } else if (method == BACKGROUND_INSULINE) {
                             int result = calculator.backgroundInsulinDose(bodyWeight);
-                            System.out.println(wsdl);
-                            System.out.println(result);
-                            synchronized (thisInstance) {
-                                vec.add(result);
+                            System.out.println("Insuline Dose: " + result + "  (" + wsdl + ")");
+                            if (!finishedCalculations) {
+                                synchronized (thisInstance) {
+                                    vec.add(result);
+                                }
                             }
                         }
-                        break;
+                        return;
                     } catch (Exception ex) {
-                        //ex.printStackTrace();
+                        ex.printStackTrace();
                         try {
+                            retries += 1;
+                            if (retries > 8) {
+                                return;
+                            }
                             //We retry the connection every 500ms
                             Thread.sleep(500);
                         } catch (InterruptedException ex1) {
-                            Logger.getLogger(Voter.class.getName()).log(Level.SEVERE, null, ex1);
+                            System.out.println("A working thread just had a timeout");
+                            return;
+                            //Logger.getLogger(Voter.class.getName()).log(Level.SEVERE, null, ex1);
                         }
                     }
                 }
@@ -125,62 +138,62 @@ public class Voter {
         }
         fixedPool.shutdown();
         try {
+            System.out.println("\n------------------\n");
             System.out.println("waiting for pool to finish");
-            fixedPool.awaitTermination(4, TimeUnit.SECONDS);
-
-            fixedPool.shutdownNow();
+            if (fixedPool.awaitTermination(4, TimeUnit.SECONDS)) {
+                System.out.println("Every thread finished with success");
+            } else {
+                System.out.println("Some threads still working. Shutting them down");
+                fixedPool.shutdownNow();
+            }
         } catch (InterruptedException ex) {
             Logger.getLogger(Voter.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        // Se o array só tiver 1 ou 0 resultados, significa que ocorreu um timeout
-        if(vec.size() <= 1){
+        finishedCalculations = true;
+        System.out.println("tamanho do vec: " + vec.size());
+        if (vec.size() <= 1) {
+            System.out.println("houve demasiados timeouts");
             return -2;
         }
-
         //AQUI LEVA O CÓDIGO DO VOTADOR. OS RESULTADOS OBTIDOS ESTÃO NO VEC
         for (int i = 0; i < vec.size(); i++) {
             System.out.println("Resultado:" + vec.get(i));
-            // Se o valor não estiver no hasmap, metemo-lo lá com o contador a 1
-            if(!hashmap.containsKey(vec.get(i))){
-                hashmap.put(vec.get(i)-1, 1f);
+            // Se o valor não estiver no hasmap, metemo-lo lá com o contador a 1.0001
+            if (!hashmap.containsKey(vec.get(i))) {
                 hashmap.put(vec.get(i), 1.0001f);
-                hashmap.put(vec.get(i)+1, 1f);
+            } else {
+                hashmap.put(vec.get(i), hashmap.get(vec.get(i)) + 1.0001f);
             }
-            // Se estiver, somamos 1 ao contador
-            else{
-                hashmap.put(vec.get(i)-1, hashmap.get(vec.get(i)-1)+1);
-                hashmap.put(vec.get(i), hashmap.get(vec.get(i))+1.0001f);
-                hashmap.put(vec.get(i)+1, hashmap.get(vec.get(i)+1)+1);
+            if (!hashmap.containsKey(vec.get(i) - 1)) {
+                hashmap.put(vec.get(i) - 1, 1f);
+            } else {
+                hashmap.put(vec.get(i) - 1, hashmap.get(vec.get(i) - 1) + 1);
+            }
+            if (!hashmap.containsKey(vec.get(i) + 1)) {
+                hashmap.put(vec.get(i) + 1, 1f);
+            } else {
+                hashmap.put(vec.get(i) + 1, hashmap.get(vec.get(i) + 1) + 1);
             }
         }
-        /*
-        for(int key : hashmap.keySet()){
-            System.out.println("Key: "+key+" Value: "+hashmap.get(key));
-        }*/
-        
-        
-        // Verificar se há maioria
+
+        // Ir buscar o resultado maioritário
         float majorCount = 0;
-        int majorResult = 0;
-        boolean maiority=false;
-        for(int key : hashmap.keySet()){
-            if(hashmap.get(key) > majorCount){
+        majorResult=0;
+        boolean maiority = false;
+        for (int key : hashmap.keySet()) {
+            if (hashmap.get(key) > majorCount) {
                 majorCount = hashmap.get(key);
                 majorResult = key;
-                maiority=true;
-            }
-            else if (hashmap.get(key) == majorCount){
-                maiority=false;
+                maiority = true;
+            } else if (hashmap.get(key) == majorCount) {
+                maiority = false;
             }
         }
-        
-        System.out.println("Resutado maioritário: " + majorResult);
-        
-        if(maiority){
+        if (maiority) {
+            System.out.println("Resutado maioritário: " + majorResult);
             return majorResult;
-        }
-        else{
+        } else {
+            System.out.println("Não houve maioria");
             return -1;
         }
     }

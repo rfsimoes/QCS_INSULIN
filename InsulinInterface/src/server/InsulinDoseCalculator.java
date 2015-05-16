@@ -18,9 +18,9 @@ public class InsulinDoseCalculator implements InsulinDoseCalculatorInterface {
             if (targetBloodSugar > preMealBloodSugar) {
                 return 0;
             }
-            int carbohydrateDose =(int) Math.round((double)carbohydrateAmount / carbohydrateToInsulinRatio / personalSensitivity *50);
-            int highBloodSugarDose = (int) Math.round((double)(preMealBloodSugar - targetBloodSugar) / personalSensitivity);
-            return carbohydrateDose + highBloodSugarDose;
+            double carbohydrateDose =(double)carbohydrateAmount / carbohydrateToInsulinRatio / personalSensitivity *50.0;
+            double highBloodSugarDose = (double)(preMealBloodSugar - targetBloodSugar) / personalSensitivity;
+            return (int) Math.round(carbohydrateDose + highBloodSugarDose);
         } catch (Exception e) {
             return -1;
         }
