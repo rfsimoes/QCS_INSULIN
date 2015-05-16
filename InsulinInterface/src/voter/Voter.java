@@ -181,7 +181,7 @@ public class Voter {
         majorResult=0;
         boolean maiority = false;
         for (int key : hashmap.keySet()) {
-            if (hashmap.get(key) > majorCount) {
+            if (vec.contains(key) && hashmap.get(key) > majorCount) {
                 majorCount = hashmap.get(key);
                 majorResult = key;
                 maiority = true;
