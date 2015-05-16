@@ -13,6 +13,6 @@ import javax.xml.ws.Endpoint;
  */
 public class InsulineDoseCalculatorPublisher {
     public static void main(String[] args) {
-	Endpoint.publish("http://localhost:8080/InsulinDoseCalculator", new InsulinDoseCalculator());
+	Endpoint.publish("http://193.137.203.108:8080/InsulinDoseCalculator", new InsulinDoseCalculator());
     }
 }

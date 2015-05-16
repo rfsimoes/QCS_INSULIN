@@ -5,13 +5,14 @@
  */
 package server;
 
+import javax.jws.WebMethod;
 import javax.jws.WebService;
 import org.apache.commons.math.stat.regression.SimpleRegression;
 
-@WebService(endpointInterface = "server.InsulinDoseCalculatorInterface")
+@WebService()
 public class InsulinDoseCalculator implements InsulinDoseCalculatorInterface {
 
-    @Override
+    @WebMethod
     public int mealtimeInsulinDose(int carbohydrateAmount, int carbohydrateToInsulinRatio, int preMealBloodSugar, int targetBloodSugar, int personalSensitivity) {
         try {
             if (targetBloodSugar > preMealBloodSugar) {
@@ -25,7 +26,7 @@ public class InsulinDoseCalculator implements InsulinDoseCalculatorInterface {
         }
     }
 
-    @Override
+    @WebMethod
     public int backgroundInsulinDose(int bodyWeight) {
         try {
             return (int) Math.round(0.5 * 0.55 * bodyWeight);
@@ -34,7 +35,7 @@ public class InsulinDoseCalculator implements InsulinDoseCalculatorInterface {
         }
     }
 
-    @Override
+    @WebMethod
     public int personalSensitivityToInsulin(int physicalActivityLevel, int[] physicalActivitySamples, int[] bloodSugarDropSamples) {
         try {
             if(physicalActivitySamples.length<2 || (physicalActivitySamples.length!=bloodSugarDropSamples.length) ){
