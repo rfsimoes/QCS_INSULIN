@@ -6,7 +6,7 @@ int hashmapKey[9];
 int hashmapVal[9];
 
 active proctype voter(){
-	int i,j,countKey,countVal,found,counter;
+	int i,j,k,countKey,countVal,found,counter,found2;
 	int majorCount,majorResult,maiority;
 	countKey=0;
 	countVal=0;
@@ -17,10 +17,10 @@ active proctype voter(){
 		//counter++;
 		//vec[i] = j
 	//}
-	vec[0]=22;
-	vec[1]=23;
+	vec[0]=27;
+	vec[1]=25;
 	vec[2]=23;
-counter=3;
+	counter=3;
 	printf("vec = %d %d %d counter = %d\n",vec[0],vec[1],vec[2],counter);
 	
 	if
@@ -32,38 +32,124 @@ counter=3;
 		found=0;
 		printf("Resultado: %d\n", vec[i]);
 		for(j:0..8){
-			printf("ciclo 0..8 -> %d\n",j);
-			printf("compare %d %d\n",hashmapKey[j] , vec[i]);
+			//printf("ciclo 0..8 -> %d\n",j);
+			//printf("compare %d %d\n",hashmapKey[j] , vec[i]);
 			if
 			:: found==1->printf("found=1\n");skip
 			:: hashmapKey[j] == vec[i] -> printf("encontra\n");
-				hashmapVal[j-1]=hashmapVal[j-1]+10000;
-				hashmapKey[j-1]=hashmapKey[j]-1;
+				found2=0;
+				for(k:0..8){
+					if
+					:: found2==1->skip
+					:: hashmapKey[k] == vec[i]-1 -> 
+					hashmapVal[k]=hashmapVal[k]+10000;
+					printf("vel i-1 %d hashmapKey %d\n",vec[i]-1,hashmapKey[k]);
+					found2=1
+					:: timeout->skip
+					fi
+				}
+				if
+				:: found2==0->
+				printf("vel i-1 nao encontrado\n");
+				hashmapKey[countKey]=vec[i]-1;
+				countKey++;
+				hashmapVal[countVal]=10000;
+				countVal++;
+				:: else->skip
+				fi;
+
+				//hashmapVal[j-1]=hashmapVal[j-1]+10000;
+				//hashmapKey[j-1]=hashmapKey[j]-1;
 				hashmapVal[j]=hashmapVal[j]+10001;
 				hashmapKey[j]=hashmapKey[j];
-				hashmapVal[j+1]=hashmapVal[j+1]+10000;
-				hashmapKey[j+1]=hashmapKey[j]+1;
+
+				found2=0;
+				for(k:0..8){
+					if
+					:: found2==1->skip
+					:: hashmapKey[k] == vec[i]+1 -> 
+					hashmapVal[k]=hashmapVal[k]+10000;
+					printf("vel i+1 %d hashmapKey %d\n",vec[i]+1,hashmapKey[k]);
+					found2=1
+					:: timeout->skip
+					fi
+				}
+				if
+				:: found2==0->
+				printf("vel i+1 nao encontrado\n");
+				hashmapKey[countKey]=vec[i]+1;
+				countKey++;
+				hashmapVal[countVal]=10000;
+				countVal++;
+				:: else->skip
+				fi;
+
+				//hashmapVal[j+1]=hashmapVal[j+1]+10000;
+				//hashmapKey[j+1]=hashmapKey[j]+1;
 				found=1;
 				printf("encontrou\n")
 			:: timeout->skip
 			fi
 
 		}
-		printf("nao encontrou, vai agora para o if\n");
+		printf("nao encontrou %d, vai agora para o if\n",vec[i]);
 		if
 		:: found==0->
+				found2=0;
+				for(k:0..8){
+					if
+					:: found2==1->skip
+					:: hashmapKey[k] == vec[i]-1 -> 
+					hashmapVal[k]=hashmapVal[k]+10000;
+					printf("vel i-1 %d hashmapKey %d\n",vec[i]-1,hashmapKey[k]);
+					found2=1
+					:: timeout->skip
+					fi
+				}
+				if
+				:: found2==0->
+				printf("vel i-1 nao encontrado\n");
 				hashmapKey[countKey]=vec[i]-1;
 				countKey++;
 				hashmapVal[countVal]=10000;
 				countVal++;
+				:: else->skip
+				fi;
+
+				//hashmapKey[countKey]=vec[i]-1;
+				//countKey++;
+				//hashmapVal[countVal]=10000;
+				//countVal++;
 				hashmapKey[countKey]=vec[i];
 				countKey++;
 				hashmapVal[countVal]=10001;
 				countVal++;
+
+				found2=0;
+				for(k:0..8){
+					if
+					:: found2==1->skip
+					:: hashmapKey[k] == vec[i]+1 -> 
+					hashmapVal[k]=hashmapVal[k]+10000;
+					printf("vel i-1 %d hashmapKey %d\n",vec[i]+1,hashmapKey[k]);
+					found2=1
+					:: timeout->skip
+					fi
+				}
+				if
+				:: found2==0->
+				printf("vel i+1 nao encontrado\n");
 				hashmapKey[countKey]=vec[i]+1;
 				countKey++;
 				hashmapVal[countVal]=10000;
 				countVal++;
+				:: else->skip
+				fi;
+
+				//hashmapKey[countKey]=vec[i]+1;
+				//countKey++;
+				//hashmapVal[countVal]=10000;
+				//countVal++;
 				printf("nao encontrou, adicinou %d\n",vec[i])
 		:: else->printf("found1 depois de found0\n");skip
 		fi;
