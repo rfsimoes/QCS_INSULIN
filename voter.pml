@@ -53,10 +53,10 @@ active proctype voter(){
 		counter++;
 		vec[i] = j
 	}
-	//vec[0]=27;
-	//vec[1]=25;
-	//vec[2]=23;
-	//counter=3;
+	/*vec[0]=1;
+	vec[1]=1;
+	vec[2]=3;
+	counter=3;*/
 	printf("vec = %d %d %d counter = %d\n",vec[0],vec[1],vec[2],counter);
 	
 	if
@@ -208,15 +208,33 @@ active proctype voter(){
 	majorCount=0;
 	majorResult=0;
 	maiority=0;
+	found2=0;
 	//printf("contar majorCount\n");
 
 	for(i : 0..8){
 		//printf("compare: %d %d\n",hashmapVal[i],majorCount);
+		found2=0;
+		for(j:0..2)
+		{
+			//printf("compare: %d %d\n",vec[j],hashmapKey[i]);
+			if
+			:: found2 == 1 -> skip
+			:: vec[j]==hashmapKey[i]->found2=1
+			:: else->skip
+			:: timeout->skip
+			fi
+		}
+		printf("found = %d hashmapKey = %d\n",found2,hashmapKey[i]);
 		if
-		:: hashmapVal[i]>majorCount->
-		majorCount=hashmapVal[i];
-		majorResult=hashmapKey[i];
-		maiority=1;
+		:: found2==0->printf("found = 0\n");skip
+		:: found2==1->
+			if 
+			:: hashmapVal[i]>majorCount->
+				majorCount=hashmapVal[i];
+				majorResult=hashmapKey[i];
+				maiority=1;
+			:: else->skip
+			fi;
 		:: hashmapVal[i]==majorCount->
 		maiority=0;
 		::else->skip;
@@ -224,11 +242,11 @@ active proctype voter(){
 
 	}
 
-	printf("MAJOR RESULT %d\n", majorResult);
+	//printf("MAJOR RESULT %d\n", majorResult);
 
 	if
 	:: maiority==1->
-	printf("%d\n",majorResult);
+	printf("MAJOR RESULT %d\n",majorResult);
 	:: else->
 	printf("-1\n");
 	fi;
