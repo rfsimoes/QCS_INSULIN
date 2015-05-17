@@ -38,7 +38,7 @@ public class Voter {
     public Voter() {
         thisInstance = this;
         webServiceList = new ArrayList<WebService>();
-        webServiceList.add(new WebService("http://localhost:8080/InsulinDoseCalculator?wsdl", "http://server/", "InsulinDoseCalculatorService"));
+        webServiceList.add(new WebService("http://qcs04.dei.uc.pt/InsulinDoseCalculator?wsdl", "http://server/", "InsulinDoseCalculatorService"));
         webServiceList.add(new WebService("http://qcs01.dei.uc.pt:8080/InsulinDoseCalculator?wsdl", "http://server/", "InsulinDoseCalculatorService"));
         webServiceList.add(new WebService("http://liis-lab.dei.uc.pt:8080/Server?wsdl", "http://server/", "InsulinDoseCalculatorService"));
         webServiceList.add(new WebService("http://qcs06.dei.uc.pt:8080/insulin?wsdl", "http://server/", "InsulinDoseCalculatorService"));
@@ -114,7 +114,9 @@ public class Voter {
                         }
                         return;
                     } catch (Exception ex) {
-                        ex.printStackTrace();
+                        //ex.printStackTrace();
+                        System.out.println("Failed to access the WSDL at: " + wsdl + 
+                                ". It failed with: Connection refused: connect.");
                         try {
                             retries += 1;
                             if (retries > 8) {
